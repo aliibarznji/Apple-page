@@ -39,7 +39,7 @@ const marketingCategories = [
     alt: "Mac category",
     width: 84,
     height: 72,
-  },  
+  },
   {
     label: "TV & Home",
     src: "/Marketing%20category/home%20and%20tv.avif",
@@ -54,12 +54,11 @@ const marketingCategories = [
     width: 72,
     height: 72,
   },
-
 ];
 
-function SearchIcon() {
+function SearchIcon({ className = "h-[18px] w-[18px]" }) {
   return (
-    <svg className="action-icon" viewBox="0 0 24 24" aria-hidden="true">
+    <svg className={className} viewBox="0 0 24 24" aria-hidden="true">
       <circle
         cx="11"
         cy="11"
@@ -79,9 +78,9 @@ function SearchIcon() {
   );
 }
 
-function UserIcon() {
+function UserIcon({ className = "h-[18px] w-[18px]" }) {
   return (
-    <svg className="action-icon" viewBox="0 0 24 24" aria-hidden="true">
+    <svg className={className} viewBox="0 0 24 24" aria-hidden="true">
       <path
         d="M12 12.5a4.25 4.25 0 1 0 0-8.5 4.25 4.25 0 0 0 0 8.5Z"
         fill="currentColor"
@@ -91,9 +90,9 @@ function UserIcon() {
   );
 }
 
-function HeartIcon() {
+function HeartIcon({ className = "h-[18px] w-[18px]" }) {
   return (
-    <svg className="action-icon" viewBox="0 0 24 24" aria-hidden="true">
+    <svg className={className} viewBox="0 0 24 24" aria-hidden="true">
       <path
         d="M12 20.25 4.85 13.3a4.72 4.72 0 0 1 6.68-6.67L12 7.1l.47-.47a4.72 4.72 0 0 1 6.68 6.67L12 20.25Z"
         fill="none"
@@ -105,9 +104,9 @@ function HeartIcon() {
   );
 }
 
-function BellIcon() {
+function BellIcon({ className = "h-[18px] w-[18px]" }) {
   return (
-    <svg className="action-icon" viewBox="0 0 24 24" aria-hidden="true">
+    <svg className={className} viewBox="0 0 24 24" aria-hidden="true">
       <path
         d="M12 4.25a4.75 4.75 0 0 0-4.75 4.75v2.08c0 1.24-.43 2.45-1.22 3.4L4.8 16.1c-.5.6-.07 1.52.71 1.52h13c.78 0 1.21-.92.71-1.52l-1.22-1.62a5.53 5.53 0 0 1-1.22-3.4V9A4.75 4.75 0 0 0 12 4.25Z"
         fill="none"
@@ -126,9 +125,9 @@ function BellIcon() {
   );
 }
 
-function CartIcon() {
+function CartIcon({ className = "h-[18px] w-[18px]" }) {
   return (
-    <svg className="action-icon" viewBox="0 0 24 24" aria-hidden="true">
+    <svg className={className} viewBox="0 0 24 24" aria-hidden="true">
       <circle
         cx="9"
         cy="19"
@@ -157,9 +156,9 @@ function CartIcon() {
   );
 }
 
-function ChevronIcon() {
+function ChevronIcon({ className = "h-3 w-3" }) {
   return (
-    <svg className="chevron-icon" viewBox="0 0 24 24" aria-hidden="true">
+    <svg className={className} viewBox="0 0 24 24" aria-hidden="true">
       <path
         d="m8 10 4 4 4-4"
         fill="none"
@@ -191,23 +190,9 @@ function FlagIcon() {
   );
 }
 
-function MenuIcon() {
+function ArrowIcon({ className = "h-[13px] w-[13px]" }) {
   return (
-    <svg className="menu-icon" viewBox="0 0 24 24" aria-hidden="true">
-      <path
-        d="M5 8.25h14M5 12h14M5 15.75h14"
-        fill="none"
-        stroke="currentColor"
-        strokeLinecap="round"
-        strokeWidth="1.9"
-      />
-    </svg>
-  );
-}
-
-function ArrowIcon() {
-  return (
-    <svg className="hero-arrow" viewBox="0 0 24 24" aria-hidden="true">
+    <svg className={className} viewBox="0 0 24 24" aria-hidden="true">
       <path
         d="M6 12h12"
         fill="none"
@@ -227,13 +212,102 @@ function ArrowIcon() {
   );
 }
 
+function HeroSection({
+  ariaLabel,
+  title,
+  subtitle,
+  primaryAction,
+  secondaryAction,
+  imageSrc,
+  imageAlt,
+  imageWidth,
+  imageHeight,
+  imageMaxWidth,
+  dark = false,
+  wideTitle = false,
+}) {
+  const sectionClasses = dark ? "bg-black" : "bg-white";
+  const titleClasses = dark ? "text-[#f5f5f7]" : "text-[#111216]";
+  const subtitleClasses = dark ? "text-[#d2d2d7]" : "text-[#6a7383]";
+  const mediaClasses = dark ? "bg-black" : "bg-white";
+
+  return (
+    <section className={`overflow-hidden pt-11 md:pt-12 lg:pt-14 ${sectionClasses}`} aria-label={ariaLabel}>
+      <div className="flex w-full flex-col items-center">
+        <div className={`flex min-h-[160px] flex-col items-center px-4 text-center md:min-h-[176px] lg:min-h-[188px] ${dark ? "pt-1.5" : ""}`}>
+          <p className="m-0 text-[0.84rem] font-semibold tracking-[0.16em] text-[#ff3036] md:text-[0.88rem]">
+            NEW
+          </p>
+          <h1
+            className={`m-0 leading-[0.95] font-bold tracking-[-0.05em] ${wideTitle ? "text-[clamp(3rem,5.2vw,4.55rem)]" : "text-[clamp(3.15rem,5.8vw,4.95rem)]"} ${titleClasses}`}
+          >
+            {title}
+          </h1>
+          <p className={`mt-3 text-[clamp(1.02rem,1.85vw,1.6rem)] font-medium leading-[1.24] ${subtitleClasses}`}>
+            {subtitle}
+          </p>
+
+          <div className="mt-5 flex w-full flex-col items-center gap-3 sm:flex-row sm:justify-center sm:gap-3.5">
+            <a
+              className="inline-flex min-h-10 items-center justify-center gap-2.5 rounded-full bg-[#e62b28] px-5 text-[0.94rem] font-bold text-white shadow-[0_8px_18px_rgba(230,43,40,0.12)] transition duration-200 hover:-translate-y-px hover:bg-[#d82825]"
+              href="#"
+            >
+              <span>{primaryAction}</span>
+              <ArrowIcon />
+            </a>
+
+            <a
+              className="inline-flex items-center gap-2.5 text-[0.95rem] font-medium text-[#ff3036] transition duration-200 hover:text-[#e62b28]"
+              href="#"
+            >
+              <span>{secondaryAction}</span>
+              <ArrowIcon />
+            </a>
+          </div>
+        </div>
+
+        <div className={`mt-2 flex w-full justify-center ${mediaClasses}`}>
+          <Image
+            className={`block h-auto w-full object-contain ${imageMaxWidth}`}
+            src={imageSrc}
+            alt={imageAlt}
+            width={imageWidth}
+            height={imageHeight}
+            priority
+          />
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function MarketingCategory({ category }) {
+  return (
+    <a className="group flex flex-col items-center gap-3.5 text-center no-underline" href="#">
+      <span className="flex h-[88px] w-[88px] items-center justify-center rounded-[20px] bg-[#f7f7f8] shadow-[inset_0_1px_0_rgba(255,255,255,0.85)] transition duration-200 group-hover:-translate-y-0.5 sm:h-[92px] sm:w-[92px] lg:h-[102px] lg:w-[102px] lg:rounded-[22px]">
+        <Image
+          className="h-auto w-auto max-h-[72px] max-w-[84px] object-contain"
+          src={category.src}
+          alt={category.alt}
+          width={category.width}
+          height={category.height}
+        />
+      </span>
+      <span className="text-[0.84rem] font-semibold leading-[1.2] text-[#5c6675] sm:text-[0.9rem] lg:text-[0.97rem]">
+        {category.label}
+      </span>
+    </a>
+  );
+}
+
 export default function HomePage() {
   return (
-    <main className="page">
-      <header className="header-block">
-        <div className="site-header">
-          <a className="brand" href="#" aria-label="Electro Mall home">
+    <main className="min-h-screen bg-white text-[#283241]">
+      <header className="bg-white">
+        <div className="grid min-h-[62px] items-center gap-2 px-3 py-2 sm:grid-cols-[132px_minmax(0,1fr)_auto] sm:px-[10px] md:grid-cols-[156px_minmax(220px,1fr)_auto] md:gap-3 md:px-[14px] lg:grid-cols-[210px_minmax(300px,1fr)_auto] lg:gap-[14px] lg:px-4 xl:grid-cols-[250px_minmax(320px,1fr)_auto] xl:gap-5 xl:px-6">
+          <a className="inline-flex items-center" href="#" aria-label="Electro Mall home">
             <Image
+              className="block h-auto w-[132px] sm:w-[132px] md:w-[160px] lg:w-[185px] xl:w-[205px]"
               src="/logo-cropped.png"
               alt="Electro Mall"
               width={240}
@@ -242,7 +316,11 @@ export default function HomePage() {
             />
           </a>
 
-          <form className="search-shell" action="#" role="search">
+          <form
+            className="flex min-w-0 items-center rounded-full border border-[#eee1e5] bg-[linear-gradient(90deg,#fcf1f3,#fff8f9)] px-[14px] py-1 shadow-[inset_0_1px_0_rgba(255,255,255,0.8)] lg:px-4 xl:px-[18px]"
+            action="#"
+            role="search"
+          >
             <label className="sr-only" htmlFor="site-search">
               Search products
             </label>
@@ -251,54 +329,58 @@ export default function HomePage() {
               name="q"
               type="search"
               placeholder="I&apos;m Looking for"
+              className="h-[34px] w-full min-w-0 border-0 bg-transparent px-2 text-[0.94rem] font-medium tracking-[0.01em] text-[#283241] outline-none placeholder:text-[#97a1b0] [&::-webkit-search-cancel-button]:hidden"
             />
-            <button className="search-button" type="submit">
-              <SearchIcon />
-              <span>Search</span>
+            <button
+              className="inline-flex h-[38px] min-w-12 items-center justify-center gap-2 rounded-full bg-[#ff3036] px-0 text-[0.94rem] font-bold text-white shadow-[0_8px_16px_rgba(255,48,54,0.12)] transition duration-200 hover:-translate-y-px hover:bg-[#f3272d] sm:min-w-[104px] sm:px-[18px]"
+              type="submit"
+            >
+              <SearchIcon className="h-[18px] w-[18px] shrink-0" />
+              <span className="hidden sm:inline">Search</span>
             </button>
           </form>
 
-          <nav className="header-actions" aria-label="Quick actions">
-            <a className="user-link" href="#">
-              <UserIcon />
-              <span>Ali Baeiz</span>
+          <nav className="flex items-center gap-[10px] whitespace-nowrap sm:gap-3 lg:gap-4" aria-label="Quick actions">
+            <a className="inline-flex items-center gap-1.5 text-[0.88rem] font-semibold text-[#283241]" href="#">
+              <UserIcon className="h-[18px] w-[18px] text-[#546273]" />
+              <span className="hidden md:inline">Ali Baeiz</span>
             </a>
 
-            <a className="help-link" href="#">
+            <a className="hidden text-[0.92rem] font-semibold text-[#ff3036] lg:inline" href="#">
               Need help ?
             </a>
 
-            <a className="icon-link" href="#" aria-label="Wishlist">
+            <a className="inline-flex h-5 w-5 items-center justify-center text-[#ff3036]" href="#" aria-label="Wishlist">
               <HeartIcon />
             </a>
 
-            <a className="icon-link" href="#" aria-label="Notifications">
+            <a className="inline-flex h-5 w-5 items-center justify-center text-[#ff3036]" href="#" aria-label="Notifications">
               <BellIcon />
             </a>
 
-            <a className="icon-link" href="#" aria-label="Cart">
+            <a className="inline-flex h-5 w-5 items-center justify-center text-[#ff3036]" href="#" aria-label="Cart">
               <CartIcon />
             </a>
 
             <button
-              className="locale-link"
+              className="inline-flex items-center gap-1.5 bg-transparent p-0 text-[#ff3036]"
               type="button"
               aria-label="Select language and region"
             >
-              <span className="flag-badge" aria-hidden="true">
+              <span className="inline-flex h-6 w-6 overflow-hidden rounded-full shadow-[inset_0_0_0_1px_rgba(255,48,54,0.1)]" aria-hidden="true">
                 <FlagIcon />
               </span>
-              <ChevronIcon />
+              <ChevronIcon className="h-3 w-3 text-[#1f2937]" />
             </button>
           </nav>
         </div>
 
-        <nav className="secondary-nav" aria-label="Shop links">
-          <div className="secondary-links">
-            {secondaryLinks.map((link) => (
+        <nav className="mx-3 mt-2 rounded-[14px] border border-[#eceef2] bg-[#f6f7f8] px-3 py-2 shadow-[0_8px_18px_rgba(15,23,42,0.04)] sm:mx-[10px] md:mx-[14px] md:px-[14px] md:py-0 lg:mx-4 lg:min-h-[44px] lg:px-4 xl:mx-6 xl:min-h-12 xl:px-5" aria-label="Shop links">
+          <div className="flex items-center justify-start overflow-x-auto whitespace-nowrap pb-0.5 md:justify-center md:pb-0">
+            {secondaryLinks.map((link, index) => (
               <a
                 key={link.label}
-                className={`secondary-link${link.hot ? " secondary-link-hot" : ""}`}
+                className={`inline-flex min-h-[34px] items-center px-3 text-[0.82rem] font-medium text-[#243655] transition duration-200 hover:text-[#ff3036] sm:px-3 md:px-[14px] md:text-[0.88rem] lg:px-[18px] lg:text-[0.92rem] ${index !== 0 ? "border-l border-[#e4e1e4]" : ""}`}
                 href="#"
               >
                 {link.label}
@@ -308,86 +390,38 @@ export default function HomePage() {
         </nav>
       </header>
 
-      <section className="hero-section" aria-label="iPhone hero">
-        <div className="hero-wrap">
-          <div className="hero-content">
-            <p className="hero-eyebrow">NEW</p>
-            <h1 className="hero-title">iPhone</h1>
-            <p className="hero-subtitle">Meet the latest iPhone lineup.</p>
+      <HeroSection
+        ariaLabel="iPhone hero"
+        title="iPhone"
+        subtitle="Meet the latest iPhone lineup."
+        primaryAction="Learn more"
+        secondaryAction="Shop iPhone"
+        imageSrc="/iphone-17-pro-model-unselect-gallery-1-202509-removebg-preview.png"
+        imageAlt="iPhone 17 Pro models"
+        imageWidth={666}
+        imageHeight={500}
+        imageMaxWidth="max-w-[980px]"
+      />
 
-            <div className="hero-actions">
-              <a className="hero-button" href="#">
-                <span>Learn more</span>
-                <ArrowIcon />
-              </a>
+      <HeroSection
+        ariaLabel="MacBook Pro hero"
+        title="MacBook Pro"
+        subtitle="The ultimate pro computer."
+        primaryAction="Learn more"
+        secondaryAction="Shop MacBook Pro"
+        imageSrc="/macbook-hero-dark.png"
+        imageAlt="MacBook Pro models"
+        imageWidth={1365}
+        imageHeight={768}
+        imageMaxWidth="max-w-[1240px]"
+        dark
+        wideTitle
+      />
 
-              <a className="hero-link" href="#">
-                <span>Shop iPhone</span>
-                <ArrowIcon />
-              </a>
-            </div>
-          </div>
-
-          <div className="hero-media">
-            <Image
-              className="hero-image hero-image-phone"
-              src="/iphone-17-pro-model-unselect-gallery-1-202509-removebg-preview.png"
-              alt="iPhone 17 Pro models"
-              width={666}
-              height={500}
-              priority
-            />
-          </div>
-        </div>
-      </section>
-      <section className="hero-section hero-section-dark" aria-label="MacBook Pro hero">
-        <div className="hero-wrap">
-          <div className="hero-content">
-            <p className="hero-eyebrow">NEW</p>
-            <h1 className="hero-title hero-title-wide">MacBook Pro</h1>
-            <p className="hero-subtitle">The ultimate pro computer.</p>
-
-            <div className="hero-actions">
-              <a className="hero-button" href="#">
-                <span>Learn more</span>
-                <ArrowIcon />
-              </a>
-
-              <a className="hero-link" href="#">
-                <span>Shop MacBook Pro</span>
-                <ArrowIcon />
-              </a>
-            </div>
-          </div>
-
-          <div className="hero-media">
-            <Image
-              className="hero-image hero-image-mac"
-              src="/macbook-hero-dark.png"
-              alt="MacBook Pro models"
-              width={1365}
-              height={768}
-              priority
-            />
-          </div>
-        </div>
-      </section>
-
-      <section className="marketing-categories" aria-label="Shop categories">
-        <div className="marketing-categories-inner">
+      <section className="bg-white px-3 pb-[54px] pt-[38px] sm:px-3 sm:pb-16 sm:pt-11 md:px-[14px] lg:px-4 lg:pb-[78px] lg:pt-[52px]" aria-label="Shop categories">
+        <div className="mx-auto grid w-full max-w-[1260px] grid-cols-2 gap-x-[10px] gap-y-4 sm:grid-cols-3 sm:gap-x-4 sm:gap-y-[22px] lg:grid-cols-6 lg:gap-7">
           {marketingCategories.map((category) => (
-            <a className="marketing-category" href="#" key={category.label}>
-              <span className="marketing-category-tile">
-                <Image
-                  className="marketing-category-image"
-                  src={category.src}
-                  alt={category.alt}
-                  width={category.width}
-                  height={category.height}
-                />
-              </span>
-              <span className="marketing-category-label">{category.label}</span>
-            </a>
+            <MarketingCategory category={category} key={category.label} />
           ))}
         </div>
       </section>
