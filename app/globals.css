@@ -16,8 +16,14 @@ body {
 .new-arrivals-scroll {
   scrollbar-width: none;
   -ms-overflow-style: none;
+  cursor: grab;
+  touch-action: pan-y;
 }
 
 .new-arrivals-scroll::-webkit-scrollbar {
   display: none;
+}
+
+.new-arrivals-scroll[data-dragging="true"] {
+  cursor: grabbing;
 }
