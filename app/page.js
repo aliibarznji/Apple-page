@@ -286,24 +286,24 @@ function HeroSection({
   const mediaClasses = dark ? "bg-black" : "bg-white";
 
   return (
-    <section className={`overflow-hidden pt-11 md:pt-12 lg:pt-14 ${sectionClasses}`} aria-label={ariaLabel}>
+    <section className={`overflow-hidden pt-8 md:pt-10 lg:pt-11 ${sectionClasses}`} aria-label={ariaLabel}>
       <div className="flex w-full flex-col items-center">
-        <div className={`flex min-h-[160px] flex-col items-center px-4 text-center md:min-h-[176px] lg:min-h-[188px] ${dark ? "pt-1.5" : ""}`}>
-          <p className="m-0 text-[0.84rem] font-semibold tracking-[0.16em] text-[#ff3036] md:text-[0.88rem]">
+        <div className={`flex min-h-[130px] flex-col items-center px-4 text-center md:min-h-[146px] lg:min-h-[158px] ${dark ? "pt-1.5" : ""}`}>
+          <p className="m-0 text-[0.72rem] font-semibold tracking-[0.16em] text-[#ff3036] md:text-[0.76rem]">
             NEW
           </p>
           <h1
-            className={`m-0 leading-[0.95] font-bold tracking-[-0.05em] ${wideTitle ? "text-[clamp(3rem,5.2vw,4.55rem)]" : "text-[clamp(3.15rem,5.8vw,4.95rem)]"} ${titleClasses}`}
+            className={`m-0 leading-[0.95] font-semibold tracking-[-0.04em] ${wideTitle ? "text-[clamp(2.5rem,4.6vw,3.8rem)]" : "text-[clamp(2.6rem,5vw,4.1rem)]"} ${titleClasses}`}
           >
             {title}
           </h1>
-          <p className={`mt-3 text-[clamp(1.02rem,1.85vw,1.6rem)] font-medium leading-[1.24] ${subtitleClasses}`}>
+          <p className={`mt-2 text-[clamp(0.92rem,1.6vw,1.35rem)] font-normal leading-[1.3] ${subtitleClasses}`}>
             {subtitle}
           </p>
 
-          <div className="mt-5 flex w-full flex-col items-center gap-3 sm:flex-row sm:justify-center sm:gap-3.5">
+          <div className="mt-4 flex w-full flex-col items-center gap-2.5 sm:flex-row sm:justify-center sm:gap-3">
             <a
-              className="inline-flex min-h-10 items-center justify-center gap-2.5 rounded-full bg-[#e62b28] px-5 text-[0.94rem] font-bold text-white shadow-[0_8px_18px_rgba(230,43,40,0.12)] transition duration-200 hover:-translate-y-px hover:bg-[#d82825]"
+              className="inline-flex min-h-8 items-center justify-center gap-2 rounded-full bg-[#e62b28] px-4 text-[0.82rem] font-semibold text-white shadow-[0_6px_14px_rgba(230,43,40,0.1)] transition duration-200 hover:-translate-y-px hover:bg-[#d82825]"
               href="#"
             >
               <span>{primaryAction}</span>
@@ -311,7 +311,7 @@ function HeroSection({
             </a>
 
             <a
-              className="inline-flex items-center gap-2.5 text-[0.95rem] font-medium text-[#ff3036] transition duration-200 hover:text-[#e62b28]"
+              className="inline-flex items-center gap-2 text-[0.82rem] font-medium text-[#ff3036] transition duration-200 hover:text-[#e62b28]"
               href="#"
             >
               <span>{secondaryAction}</span>
@@ -337,17 +337,17 @@ function HeroSection({
 
 function MarketingCategory({ category }) {
   return (
-    <a className="group flex flex-col items-center gap-3.5 text-center no-underline" href="#">
-      <span className="flex h-[88px] w-[88px] items-center justify-center rounded-[20px] bg-[#f7f7f8] shadow-[inset_0_1px_0_rgba(255,255,255,0.85)] transition duration-200 group-hover:-translate-y-0.5 sm:h-[92px] sm:w-[92px] lg:h-[102px] lg:w-[102px] lg:rounded-[22px]">
+    <a className="group flex flex-col items-center gap-2.5 text-center no-underline" href="#">
+      <span className="flex h-[72px] w-[72px] items-center justify-center rounded-[16px] bg-[#f5f5f7] transition duration-200 group-hover:-translate-y-0.5 sm:h-[76px] sm:w-[76px] lg:h-[84px] lg:w-[84px] lg:rounded-[18px]">
         <Image
-          className="h-auto w-auto max-h-[72px] max-w-[84px] object-contain"
+          className="h-auto w-auto max-h-[56px] max-w-[66px] object-contain"
           src={category.src}
           alt={category.alt}
           width={category.width}
           height={category.height}
         />
       </span>
-      <span className="text-[0.84rem] font-semibold leading-[1.2] text-[#5c6675] sm:text-[0.9rem] lg:text-[0.97rem]">
+      <span className="text-[0.74rem] font-medium leading-[1.2] text-[#6e6e73] sm:text-[0.78rem] lg:text-[0.84rem]">
         {category.label}
       </span>
     </a>
@@ -358,10 +358,10 @@ export default function HomePage() {
   return (
     <main className="min-h-screen bg-white text-[#283241]">
       <header className="bg-white">
-        <div className="grid min-h-[62px] items-center gap-2 px-3 py-2 sm:grid-cols-[132px_minmax(0,1fr)_auto] sm:px-[10px] md:grid-cols-[156px_minmax(220px,1fr)_auto] md:gap-3 md:px-[14px] lg:grid-cols-[210px_minmax(300px,1fr)_auto] lg:gap-[14px] lg:px-4 xl:grid-cols-[250px_minmax(320px,1fr)_auto] xl:gap-5 xl:px-6">
+        <div className="grid min-h-[48px] items-center gap-2 px-3 py-1.5 sm:grid-cols-[112px_minmax(0,1fr)_auto] sm:px-[10px] md:grid-cols-[132px_minmax(200px,1fr)_auto] md:gap-3 md:px-[14px] lg:grid-cols-[170px_minmax(280px,1fr)_auto] lg:gap-[14px] lg:px-4 xl:grid-cols-[200px_minmax(300px,1fr)_auto] xl:gap-5 xl:px-6">
           <a className="inline-flex items-center" href="#" aria-label="Electro Mall home">
             <Image
-              className="block h-auto w-[132px] sm:w-[132px] md:w-[160px] lg:w-[185px] xl:w-[205px]"
+              className="block h-auto w-[112px] sm:w-[112px] md:w-[132px] lg:w-[155px] xl:w-[170px]"
               src="/logo-cropped.png"
               alt="Electro Mall"
               width={240}
@@ -371,7 +371,7 @@ export default function HomePage() {
           </a>
 
           <form
-            className="flex min-w-0 items-center rounded-full border border-[#eee1e5] bg-[linear-gradient(90deg,#fcf1f3,#fff8f9)] px-[14px] py-1 shadow-[inset_0_1px_0_rgba(255,255,255,0.8)] lg:px-4 xl:px-[18px]"
+            className="flex min-w-0 items-center rounded-full border border-[#eee1e5] bg-[linear-gradient(90deg,#fcf1f3,#fff8f9)] px-3 py-0.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.8)] lg:px-3.5 xl:px-4"
             action="#"
             role="search"
           >
@@ -383,37 +383,37 @@ export default function HomePage() {
               name="q"
               type="search"
               placeholder="I&apos;m Looking for"
-              className="h-[34px] w-full min-w-0 border-0 bg-transparent px-2 text-[0.94rem] font-medium tracking-[0.01em] text-[#283241] outline-none placeholder:text-[#97a1b0] [&::-webkit-search-cancel-button]:hidden"
+              className="h-[30px] w-full min-w-0 border-0 bg-transparent px-2 text-[0.82rem] font-medium tracking-[0.01em] text-[#283241] outline-none placeholder:text-[#97a1b0] [&::-webkit-search-cancel-button]:hidden"
             />
             <button
-              className="inline-flex h-[38px] min-w-12 items-center justify-center gap-2 rounded-full bg-[#ff3036] px-0 text-[0.94rem] font-bold text-white shadow-[0_8px_16px_rgba(255,48,54,0.12)] transition duration-200 hover:-translate-y-px hover:bg-[#f3272d] sm:min-w-[104px] sm:px-[18px]"
+              className="inline-flex h-[32px] min-w-10 items-center justify-center gap-1.5 rounded-full bg-[#ff3036] px-0 text-[0.82rem] font-semibold text-white shadow-[0_6px_14px_rgba(255,48,54,0.1)] transition duration-200 hover:-translate-y-px hover:bg-[#f3272d] sm:min-w-[88px] sm:px-3.5"
               type="submit"
             >
-              <SearchIcon className="h-[18px] w-[18px] shrink-0" />
+              <SearchIcon className="h-[15px] w-[15px] shrink-0" />
               <span className="hidden sm:inline">Search</span>
             </button>
           </form>
 
           <nav className="flex items-center gap-[10px] whitespace-nowrap sm:gap-3 lg:gap-4" aria-label="Quick actions">
-            <a className="inline-flex items-center gap-1.5 text-[0.88rem] font-semibold text-[#283241]" href="#">
-              <UserIcon className="h-[18px] w-[18px] text-[#546273]" />
+            <a className="inline-flex items-center gap-1.5 text-[0.78rem] font-medium text-[#283241]" href="#">
+              <UserIcon className="h-[15px] w-[15px] text-[#546273]" />
               <span className="hidden md:inline">Ali Baeiz</span>
             </a>
 
-            <a className="hidden text-[0.92rem] font-semibold text-[#ff3036] lg:inline" href="#">
+            <a className="hidden text-[0.78rem] font-medium text-[#ff3036] lg:inline" href="#">
               Need help ?
             </a>
 
-            <a className="inline-flex h-5 w-5 items-center justify-center text-[#ff3036]" href="#" aria-label="Wishlist">
-              <HeartIcon />
+            <a className="inline-flex h-4 w-4 items-center justify-center text-[#ff3036]" href="#" aria-label="Wishlist">
+              <HeartIcon className="h-[15px] w-[15px]" />
             </a>
 
-            <a className="inline-flex h-5 w-5 items-center justify-center text-[#ff3036]" href="#" aria-label="Notifications">
-              <BellIcon />
+            <a className="inline-flex h-4 w-4 items-center justify-center text-[#ff3036]" href="#" aria-label="Notifications">
+              <BellIcon className="h-[15px] w-[15px]" />
             </a>
 
-            <a className="inline-flex h-5 w-5 items-center justify-center text-[#ff3036]" href="#" aria-label="Cart">
-              <CartIcon />
+            <a className="inline-flex h-4 w-4 items-center justify-center text-[#ff3036]" href="#" aria-label="Cart">
+              <CartIcon className="h-[15px] w-[15px]" />
             </a>
 
             <button
@@ -421,7 +421,7 @@ export default function HomePage() {
               type="button"
               aria-label="Select language and region"
             >
-              <span className="inline-flex h-6 w-6 overflow-hidden rounded-full shadow-[inset_0_0_0_1px_rgba(255,48,54,0.1)]" aria-hidden="true">
+              <span className="inline-flex h-5 w-5 overflow-hidden rounded-full shadow-[inset_0_0_0_1px_rgba(255,48,54,0.1)]" aria-hidden="true">
                 <FlagIcon />
               </span>
               <ChevronIcon className="h-3 w-3 text-[#1f2937]" />
@@ -429,12 +429,12 @@ export default function HomePage() {
           </nav>
         </div>
 
-        <nav className="mx-3 mt-2 rounded-[14px] border border-[#eceef2] bg-[#f6f7f8] px-3 py-2 shadow-[0_8px_18px_rgba(15,23,42,0.04)] sm:mx-[10px] md:mx-[14px] md:px-[14px] md:py-0 lg:mx-4 lg:min-h-[44px] lg:px-4 xl:mx-6 xl:min-h-12 xl:px-5" aria-label="Shop links">
+        <nav className="mx-3 mt-1.5 rounded-[12px] border border-[#eceef2] bg-[#f5f5f7] px-3 py-1.5 shadow-[0_6px_14px_rgba(15,23,42,0.03)] sm:mx-[10px] md:mx-[14px] md:px-[14px] md:py-0 lg:mx-4 lg:min-h-[36px] lg:px-4 xl:mx-6 xl:min-h-10 xl:px-5" aria-label="Shop links">
           <div className="flex items-center justify-start overflow-x-auto whitespace-nowrap pb-0.5 md:justify-center md:pb-0">
             {secondaryLinks.map((link, index) => (
               <a
                 key={link.label}
-                className={`inline-flex min-h-[34px] items-center px-3 text-[0.82rem] font-medium text-[#243655] transition duration-200 hover:text-[#ff3036] sm:px-3 md:px-[14px] md:text-[0.88rem] lg:px-[18px] lg:text-[0.92rem] ${index !== 0 ? "border-l border-[#e4e1e4]" : ""}`}
+                className={`inline-flex min-h-[28px] items-center px-2.5 text-[0.72rem] font-medium text-[#243655] transition duration-200 hover:text-[#ff3036] sm:px-2.5 md:px-3 md:text-[0.76rem] lg:px-3.5 lg:text-[0.8rem] ${index !== 0 ? "border-l border-[#e4e1e4]" : ""}`}
                 href="#"
               >
                 {link.label}
@@ -472,8 +472,8 @@ export default function HomePage() {
         wideTitle
       />
 
-      <section className="bg-white px-3 pb-[54px] pt-[38px] sm:px-3 sm:pb-16 sm:pt-11 md:px-[14px] lg:px-4 lg:pb-[78px] lg:pt-[52px]" aria-label="Shop categories">
-        <div className="mx-auto grid w-full max-w-[1260px] grid-cols-2 gap-x-[10px] gap-y-4 sm:grid-cols-3 sm:gap-x-4 sm:gap-y-[22px] lg:grid-cols-6 lg:gap-7">
+      <section className="bg-white px-3 pb-[42px] pt-[28px] sm:px-3 sm:pb-12 sm:pt-8 md:px-[14px] lg:px-4 lg:pb-[58px] lg:pt-[38px]" aria-label="Shop categories">
+        <div className="mx-auto grid w-full max-w-[1060px] grid-cols-2 gap-x-[10px] gap-y-3 sm:grid-cols-3 sm:gap-x-4 sm:gap-y-[18px] lg:grid-cols-6 lg:gap-6">
           {marketingCategories.map((category) => (
             <MarketingCategory category={category} key={category.label} />
           ))}

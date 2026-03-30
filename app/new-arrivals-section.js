@@ -27,10 +27,10 @@ function ArrowIcon({ className = "h-[13px] w-[13px]" }) {
 
 function NewArrivalCard({ product }) {
   return (
-    <article className="min-w-[238px] snap-start sm:min-w-[252px] lg:min-w-[268px]">
+    <article className="min-w-[200px] snap-start sm:min-w-[216px] lg:min-w-[232px]">
       <a className="group block no-underline" href="#">
         <div
-          className={`flex min-h-[220px] items-center justify-center overflow-hidden rounded-[26px] border border-[#eff0f2] px-4 py-5 transition duration-200 group-hover:-translate-y-0.5 group-hover:shadow-[0_12px_24px_rgba(15,23,42,0.06)] sm:min-h-[236px] ${product.panelClassName}`}
+          className={`flex min-h-[185px] items-center justify-center overflow-hidden rounded-[20px] border border-[#eff0f2] px-3.5 py-4 transition duration-200 group-hover:-translate-y-0.5 group-hover:shadow-[0_10px_20px_rgba(15,23,42,0.05)] sm:min-h-[200px] ${product.panelClassName}`}
         >
           <Image
             className={`h-auto w-auto object-contain ${product.imageClassName}`}
@@ -38,16 +38,16 @@ function NewArrivalCard({ product }) {
             alt={product.alt}
             width={product.width}
             height={product.height}
-            sizes="(min-width: 1024px) 268px, (min-width: 640px) 252px, 238px"
+            sizes="(min-width: 1024px) 232px, (min-width: 640px) 216px, 200px"
             draggable={false}
           />
         </div>
 
-        <div className="pt-4">
-          <h3 className="max-w-[18ch] text-[0.99rem] font-semibold leading-[1.35] text-[#111216] sm:text-[1.03rem]">
+        <div className="pt-3">
+          <h3 className="max-w-[18ch] text-[0.84rem] font-medium leading-[1.35] text-[#1d1d1f] sm:text-[0.88rem]">
             {product.name}
           </h3>
-          <p className="mt-3 text-[1.02rem] font-semibold text-[#111216]">
+          <p className="mt-2 text-[0.86rem] font-medium text-[#6e6e73]">
             {product.price}
           </p>
         </div>
@@ -249,33 +249,33 @@ export default function NewArrivalsSection({ products }) {
 
   return (
     <section
-      className="bg-white px-3 pb-[76px] pt-[8px] sm:px-3 sm:pb-[88px] md:px-[14px] lg:px-4 lg:pb-[104px]"
+      className="bg-white px-3 pb-[56px] pt-[6px] sm:px-3 sm:pb-[68px] md:px-[14px] lg:px-4 lg:pb-[80px]"
       aria-label="New arrivals"
     >
-      <div className="mx-auto max-w-[1260px]">
-        <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+      <div className="mx-auto max-w-[1060px]">
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <h2 className="text-[clamp(2rem,3.6vw,3.2rem)] font-semibold leading-[0.95] tracking-[-0.05em] text-[#111216]">
+            <h2 className="text-[clamp(1.6rem,3vw,2.6rem)] font-semibold leading-[0.95] tracking-[-0.04em] text-[#1d1d1f]">
               New Arrivals
             </h2>
-            <p className="mt-2 text-[1rem] leading-[1.5] text-[#6a7383] sm:text-[1.04rem]">
+            <p className="mt-1.5 text-[0.86rem] leading-[1.5] text-[#6e6e73] sm:text-[0.9rem]">
               The latest Apple favorites, just landed.
             </p>
           </div>
 
           <a
-            className="inline-flex items-center gap-2 text-[0.96rem] font-medium text-[#ff3036] transition duration-200 hover:text-[#e62b28]"
+            className="inline-flex items-center gap-1.5 text-[0.82rem] font-medium text-[#ff3036] transition duration-200 hover:text-[#e62b28]"
             href="#"
           >
             <span>View All</span>
-            <ArrowIcon className="h-[13px] w-[13px]" />
+            <ArrowIcon className="h-[11px] w-[11px]" />
           </a>
         </div>
 
-        <div className="mt-8">
+        <div className="mt-6">
           <div
             ref={scrollerRef}
-            className={`new-arrivals-scroll flex snap-x snap-proximity gap-4 overflow-x-auto pb-3 sm:gap-5 lg:gap-6 ${isDragging ? "select-none" : ""}`}
+            className={`new-arrivals-scroll flex snap-x snap-proximity gap-3.5 overflow-x-auto pb-3 sm:gap-4 lg:gap-5 ${isDragging ? "select-none" : ""}`}
             data-dragging={isDragging ? "true" : "false"}
             onClickCapture={handleClickCapture}
             onPointerCancel={handlePointerCancel}
