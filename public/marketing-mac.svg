@@ -1,0 +1,25 @@
+<svg width="150" height="120" viewBox="0 0 150 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="macBody" x1="35" y1="21" x2="113" y2="83" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2B3240"/>
+      <stop offset="1" stop-color="#838A97"/>
+    </linearGradient>
+    <linearGradient id="macScreen" x1="44" y1="27" x2="106" y2="73" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FF8A00"/>
+      <stop offset="0.45" stop-color="#FF3A5C"/>
+      <stop offset="1" stop-color="#3B82F6"/>
+    </linearGradient>
+    <linearGradient id="macBase" x1="24" y1="82" x2="126" y2="97" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#C1C6CE"/>
+      <stop offset="1" stop-color="#A5AAB3"/>
+    </linearGradient>
+  </defs>
+  <g transform="translate(4 6)">
+    <rect x="38" y="18" width="74" height="50" rx="6" fill="url(#macBody)"/>
+    <rect x="42" y="22" width="66" height="42" rx="4" fill="url(#macScreen)"/>
+    <path d="M58 29H108V47L71 38L58 29Z" fill="#FFD166" fill-opacity="0.8"/>
+    <path d="M42 56L66 41L108 64H42V56Z" fill="#0F5FFF" fill-opacity="0.62"/>
+    <path d="M22 82C22 79.7909 23.7909 78 26 78H124C126.209 78 128 79.7909 128 82V83.5C128 86.5376 125.538 89 122.5 89H27.5C24.4624 89 22 86.5376 22 83.5V82Z" fill="url(#macBase)"/>
+    <rect x="64" y="81" width="22" height="2.4" rx="1.2" fill="#8C919A"/>
+  </g>
+</svg>

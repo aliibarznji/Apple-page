@@ -1,0 +1,19 @@
+<svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="podsCase" x1="33" y1="30" x2="87" y2="96" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#E9EDF2"/>
+    </linearGradient>
+    <linearGradient id="podsShadow" x1="40" y1="86" x2="82" y2="103" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#C8CDD5"/>
+      <stop offset="1" stop-color="#E3E6EB"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="60" cy="94" rx="24" ry="8" fill="url(#podsShadow)" fill-opacity="0.7"/>
+  <path d="M39 39C39 27.402 48.402 18 60 18C71.598 18 81 27.402 81 39V44H39V39Z" fill="#F7F9FB"/>
+  <path d="M34 46C34 41.5817 37.5817 38 42 38H78C82.4183 38 86 41.5817 86 46V76C86 87.0457 77.0457 96 66 96H54C42.9543 96 34 87.0457 34 76V46Z" fill="url(#podsCase)"/>
+  <path d="M34 57H86" stroke="#E0E4EA" stroke-width="2"/>
+  <path d="M49 25C43.4772 25 39 29.4772 39 35V44H49V35C49 29.4772 53.4772 25 59 25" stroke="#F7F9FB" stroke-width="7" stroke-linecap="round"/>
+  <path d="M71 25C76.5228 25 81 29.4772 81 35V44H71V35C71 29.4772 66.5228 25 61 25" stroke="#F7F9FB" stroke-width="7" stroke-linecap="round"/>
+  <circle cx="60" cy="67" r="2.6" fill="#CDD2DA"/>
+</svg>
