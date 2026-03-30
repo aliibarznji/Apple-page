@@ -56,6 +56,59 @@ const marketingCategories = [
   },
 ];
 
+const newArrivalProducts = [
+  {
+    name: "iPhone 17 Pro",
+    price: "72,000 IQD",
+    src: "/iphone-17-pro-model-unselect-gallery-1-202509-removebg-preview.png",
+    alt: "iPhone 17 Pro",
+    width: 666,
+    height: 500,
+    imageClassName: "max-w-[178px] sm:max-w-[188px]",
+    panelClassName: "bg-[#f7f7f8]",
+  },
+  {
+    name: "Apple Watch Series 10",
+    price: "69,000 IQD",
+    src: "/Marketing%20category/apple%20watch.avif",
+    alt: "Apple Watch",
+    width: 72,
+    height: 72,
+    imageClassName: "max-w-[92px] scale-[2.05] sm:max-w-[96px]",
+    panelClassName: "bg-[#f7f7f8]",
+  },
+  {
+    name: "AirPods Pro",
+    price: "84,000 IQD",
+    src: "/Marketing%20category/airpods.avif",
+    alt: "AirPods Pro",
+    width: 72,
+    height: 72,
+    imageClassName: "max-w-[94px] scale-[2.05] sm:max-w-[98px]",
+    panelClassName: "bg-[#f7f7f8]",
+  },
+  {
+    name: "iPad Air",
+    price: "95,000 IQD",
+    src: "/Marketing%20category/Ipads.avif",
+    alt: "iPad Air",
+    width: 78,
+    height: 72,
+    imageClassName: "max-w-[110px] scale-[2.05] sm:max-w-[116px]",
+    panelClassName: "bg-[#f7f7f8]",
+  },
+  {
+    name: "MacBook Pro",
+    price: "112,000 IQD",
+    src: "/Marketing%20category/macbook.avif",
+    alt: "MacBook Pro",
+    width: 84,
+    height: 72,
+    imageClassName: "max-w-[118px] scale-[2] sm:max-w-[126px]",
+    panelClassName: "bg-[#f7f7f8]",
+  },
+];
+
 function SearchIcon({ className = "h-[18px] w-[18px]" }) {
   return (
     <svg className={className} viewBox="0 0 24 24" aria-hidden="true">
@@ -300,6 +353,36 @@ function MarketingCategory({ category }) {
   );
 }
 
+function NewArrivalCard({ product }) {
+  return (
+    <article className="min-w-[238px] snap-start sm:min-w-[252px] lg:min-w-[268px]">
+      <a className="group block no-underline" href="#">
+        <div
+          className={`flex min-h-[220px] items-center justify-center overflow-hidden rounded-[26px] border border-[#eff0f2] px-4 py-5 transition duration-200 group-hover:-translate-y-0.5 group-hover:shadow-[0_12px_24px_rgba(15,23,42,0.06)] sm:min-h-[236px] ${product.panelClassName}`}
+        >
+          <Image
+            className={`h-auto w-auto object-contain ${product.imageClassName}`}
+            src={product.src}
+            alt={product.alt}
+            width={product.width}
+            height={product.height}
+            sizes="(min-width: 1024px) 268px, (min-width: 640px) 252px, 238px"
+          />
+        </div>
+
+        <div className="pt-4">
+          <h3 className="max-w-[18ch] text-[0.99rem] font-semibold leading-[1.35] text-[#111216] sm:text-[1.03rem]">
+            {product.name}
+          </h3>
+          <p className="mt-3 text-[1.02rem] font-semibold text-[#111216]">
+            {product.price}
+          </p>
+        </div>
+      </a>
+    </article>
+  );
+}
+
 export default function HomePage() {
   return (
     <main className="min-h-screen bg-white text-[#283241]">
@@ -423,6 +506,40 @@ export default function HomePage() {
           {marketingCategories.map((category) => (
             <MarketingCategory category={category} key={category.label} />
           ))}
+        </div>
+      </section>
+
+      <section
+        className="bg-white px-3 pb-[76px] pt-[8px] sm:px-3 sm:pb-[88px] md:px-[14px] lg:px-4 lg:pb-[104px]"
+        aria-label="New arrivals"
+      >
+        <div className="mx-auto max-w-[1260px]">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <h2 className="text-[clamp(2rem,3.6vw,3.2rem)] font-semibold leading-[0.95] tracking-[-0.05em] text-[#111216]">
+                New Arrivals
+              </h2>
+              <p className="mt-2 text-[1rem] leading-[1.5] text-[#6a7383] sm:text-[1.04rem]">
+                The latest Apple favorites, just landed.
+              </p>
+            </div>
+
+            <a
+              className="inline-flex items-center gap-2 text-[0.96rem] font-medium text-[#ff3036] transition duration-200 hover:text-[#e62b28]"
+              href="#"
+            >
+              <span>View All</span>
+              <ArrowIcon className="h-[13px] w-[13px]" />
+            </a>
+          </div>
+
+          <div className="mt-8">
+            <div className="new-arrivals-scroll flex snap-x snap-mandatory gap-4 overflow-x-auto pb-3 sm:gap-5 lg:gap-6">
+              {newArrivalProducts.map((product) => (
+                <NewArrivalCard key={product.name} product={product} />
+              ))}
+            </div>
+          </div>
         </div>
       </section>
     </main>

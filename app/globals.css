@@ -12,3 +12,12 @@ body {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
+
+.new-arrivals-scroll {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.new-arrivals-scroll::-webkit-scrollbar {
+  display: none;
+}
