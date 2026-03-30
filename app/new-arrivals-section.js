@@ -58,14 +58,71 @@ function NewArrivalCard({ product }) {
 
 export default function NewArrivalsSection({ products }) {
   const scrollerRef = useRef(null);
+  const momentumFrameRef = useRef(null);
   const dragStateRef = useRef({
     pointerId: null,
     startX: 0,
     startScrollLeft: 0,
+    lastClientX: 0,
+    lastTimestamp: 0,
+    velocity: 0,
     hasDragged: false,
     preventClick: false,
   });
   const [isDragging, setIsDragging] = useState(false);
+
+  function stopMomentum() {
+    if (momentumFrameRef.current !== null) {
+      cancelAnimationFrame(momentumFrameRef.current);
+      momentumFrameRef.current = null;
+    }
+  }
+
+  function startMomentum() {
+    const scroller = scrollerRef.current;
+    if (!scroller) {
+      return;
+    }
+
+    stopMomentum();
+
+    let velocity = dragStateRef.current.velocity;
+    if (Math.abs(velocity) < 0.08) {
+      return;
+    }
+
+    let previousTime = performance.now();
+
+    const step = (currentTime) => {
+      const currentScroller = scrollerRef.current;
+      if (!currentScroller) {
+        momentumFrameRef.current = null;
+        return;
+      }
+
+      const deltaTime = currentTime - previousTime;
+      previousTime = currentTime;
+
+      currentScroller.scrollLeft += velocity * deltaTime;
+
+      const decay = Math.pow(0.94, deltaTime / 16);
+      velocity *= decay;
+
+      const atStart = currentScroller.scrollLeft <= 0;
+      const atEnd =
+        currentScroller.scrollLeft >=
+        currentScroller.scrollWidth - currentScroller.clientWidth;
+
+      if (Math.abs(velocity) < 0.02 || atStart || atEnd) {
+        momentumFrameRef.current = null;
+        return;
+      }
+
+      momentumFrameRef.current = requestAnimationFrame(step);
+    };
+
+    momentumFrameRef.current = requestAnimationFrame(step);
+  }
 
   function handlePointerDown(event) {
     if (event.pointerType === "touch" || event.button !== 0) {
@@ -77,9 +134,14 @@ export default function NewArrivalsSection({ products }) {
       return;
     }
 
+    stopMomentum();
+
     dragStateRef.current.pointerId = event.pointerId;
     dragStateRef.current.startX = event.clientX;
     dragStateRef.current.startScrollLeft = scroller.scrollLeft;
+    dragStateRef.current.lastClientX = event.clientX;
+    dragStateRef.current.lastTimestamp = event.timeStamp;
+    dragStateRef.current.velocity = 0;
     dragStateRef.current.hasDragged = false;
     dragStateRef.current.preventClick = false;
 
@@ -110,11 +172,24 @@ export default function NewArrivalsSection({ products }) {
 
     event.preventDefault();
     scroller.scrollLeft = dragStateRef.current.startScrollLeft - deltaX;
+
+    const deltaTime = event.timeStamp - dragStateRef.current.lastTimestamp;
+    if (deltaTime > 0) {
+      const pointerVelocity =
+        (dragStateRef.current.lastClientX - event.clientX) / deltaTime;
+
+      dragStateRef.current.velocity =
+        dragStateRef.current.velocity * 0.72 + pointerVelocity * 0.28;
+      dragStateRef.current.lastClientX = event.clientX;
+      dragStateRef.current.lastTimestamp = event.timeStamp;
+    }
   }
 
-  function finishDragging(pointerId) {
+  function finishDragging(pointerId, shouldContinueMomentum = true) {
     const scroller = scrollerRef.current;
     const activePointerId = dragStateRef.current.pointerId;
+    const shouldStartMomentum =
+      shouldContinueMomentum && dragStateRef.current.hasDragged;
 
     dragStateRef.current.pointerId = null;
     dragStateRef.current.startX = 0;
@@ -131,6 +206,10 @@ export default function NewArrivalsSection({ products }) {
     }
 
     setIsDragging(false);
+
+    if (shouldStartMomentum) {
+      startMomentum();
+    }
   }
 
   function handlePointerUp(event) {
@@ -147,7 +226,7 @@ export default function NewArrivalsSection({ products }) {
     }
 
     dragStateRef.current.preventClick = false;
-    finishDragging(event.pointerId);
+    finishDragging(event.pointerId, false);
   }
 
   function handleLostPointerCapture(event) {
@@ -196,7 +275,7 @@ export default function NewArrivalsSection({ products }) {
         <div className="mt-8">
           <div
             ref={scrollerRef}
-            className={`new-arrivals-scroll flex snap-x snap-mandatory gap-4 overflow-x-auto pb-3 sm:gap-5 lg:gap-6 ${isDragging ? "select-none" : ""}`}
+            className={`new-arrivals-scroll flex snap-x snap-proximity gap-4 overflow-x-auto pb-3 sm:gap-5 lg:gap-6 ${isDragging ? "select-none" : ""}`}
             data-dragging={isDragging ? "true" : "false"}
             onClickCapture={handleClickCapture}
             onPointerCancel={handlePointerCancel}

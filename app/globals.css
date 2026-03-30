@@ -17,6 +17,7 @@ body {
   scrollbar-width: none;
   -ms-overflow-style: none;
   cursor: grab;
+  scroll-behavior: smooth;
   touch-action: pan-y;
 }
 
@@ -26,4 +27,6 @@ body {
 
 .new-arrivals-scroll[data-dragging="true"] {
   cursor: grabbing;
+  scroll-behavior: auto;
+  scroll-snap-type: none;
 }
