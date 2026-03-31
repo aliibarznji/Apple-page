@@ -170,37 +170,43 @@ const bestSellingAccessories = [
     label: "Cables & Connector",
     src: "/accessories/Cables%20%26%20Connector.avif",
     alt: "Cables and connector accessories",
-    imageClassName: "max-w-[132px] sm:max-w-[144px]",
+    imageClassName:
+      "max-h-[44px] max-w-[58px] sm:max-h-[48px] sm:max-w-[62px] lg:max-h-[54px] lg:max-w-[68px]",
   },
   {
     label: "Apple Watch Bands",
     src: "/accessories/Apple%20Watch%20Bands.avif",
     alt: "Apple Watch bands",
-    imageClassName: "max-w-[116px] sm:max-w-[126px]",
+    imageClassName:
+      "max-h-[42px] max-w-[52px] sm:max-h-[46px] sm:max-w-[56px] lg:max-h-[50px] lg:max-w-[60px]",
   },
   {
     label: "Power Adapter",
     src: "/accessories/Power%20Adapter.avif",
     alt: "Power adapter",
-    imageClassName: "max-w-[88px] sm:max-w-[94px]",
+    imageClassName:
+      "max-h-[46px] max-w-[42px] sm:max-h-[50px] sm:max-w-[46px] lg:max-h-[56px] lg:max-w-[52px]",
   },
   {
     label: "Phone Covers",
     src: "/accessories/Phone%20Covers.avif",
     alt: "Phone covers",
-    imageClassName: "max-w-[96px] sm:max-w-[104px]",
+    imageClassName:
+      "max-h-[46px] max-w-[40px] sm:max-h-[50px] sm:max-w-[44px] lg:max-h-[56px] lg:max-w-[48px]",
   },
   {
     label: "Apple Pencil",
     src: "/accessories/Apple%20Pencil.avif",
     alt: "Apple Pencil",
-    imageClassName: "max-w-[84px] sm:max-w-[92px]",
+    imageClassName:
+      "max-h-[44px] max-w-[52px] sm:max-h-[48px] sm:max-w-[56px] lg:max-h-[54px] lg:max-w-[62px]",
   },
   {
     label: "iPad Smart Covers",
     src: "/accessories/iPad%20Smart%20Covers.avif",
     alt: "iPad smart covers",
-    imageClassName: "max-w-[118px] sm:max-w-[128px]",
+    imageClassName:
+      "max-h-[40px] max-w-[48px] sm:max-h-[44px] sm:max-w-[52px] lg:max-h-[48px] lg:max-w-[58px]",
   },
 ];
 
@@ -513,28 +519,24 @@ function FeaturedPromoTile({ tile }) {
 
 function AccessoryShowcaseCard({ accessory }) {
   return (
-    <article className="group">
-      <a className="block no-underline" href="#">
-        <div className="relative flex h-[138px] items-center justify-center overflow-hidden rounded-[22px] border border-[#eceef2] bg-[linear-gradient(180deg,#fbfbfc_0%,#f5f5f7_100%)] px-4 py-5 shadow-[0_8px_16px_rgba(15,23,42,0.03)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_14px_24px_rgba(15,23,42,0.08)] sm:h-[152px]">
-          <div
-            className="pointer-events-none absolute inset-x-0 top-0 h-16 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.92),rgba(255,255,255,0)_72%)]"
-            aria-hidden="true"
+    <article>
+      <a
+        className="group flex flex-col items-center gap-3.5 text-center no-underline sm:gap-4"
+        href="#"
+      >
+        <span className="flex h-[72px] w-[72px] items-center justify-center rounded-[16px] bg-[#f5f5f7] transition duration-200 group-hover:-translate-y-0.5 sm:h-[76px] sm:w-[76px] lg:h-[84px] lg:w-[84px] lg:rounded-[18px]">
+          <Image
+            className={`h-auto w-auto object-contain ${accessory.imageClassName}`}
+            src={accessory.src}
+            alt={accessory.alt}
+            width={250}
+            height={150}
+            sizes="(min-width: 1024px) 8vw, (min-width: 640px) 16vw, 26vw"
+            unoptimized
           />
+        </span>
 
-          <div className="relative z-10 flex h-[82px] w-full items-center justify-center sm:h-[92px]">
-            <Image
-              className={`h-auto w-auto max-h-[82px] object-contain transition duration-300 group-hover:scale-[1.05] sm:max-h-[92px] ${accessory.imageClassName}`}
-              src={accessory.src}
-              alt={accessory.alt}
-              width={250}
-              height={150}
-              sizes="(min-width: 640px) 26vw, 42vw"
-              unoptimized
-            />
-          </div>
-        </div>
-
-        <h3 className="pt-3 text-center text-[0.88rem] font-medium leading-[1.28] tracking-[-0.01em] text-[#243655] sm:text-[0.98rem]">
+        <h3 className="max-w-[11ch] text-[0.74rem] font-medium leading-[1.2] text-[#6e6e73] sm:text-[0.78rem] lg:text-[0.84rem]">
           {accessory.label}
         </h3>
       </a>
@@ -699,22 +701,22 @@ export default function HomePage() {
         aria-label="Best selling accessories"
       >
         <div className="mx-auto max-w-[1060px]">
-          <div className="mx-auto max-w-[520px] text-center">
+          <div className="mx-auto max-w-[520px] pb-5 text-center sm:pb-6">
             <p className="text-[0.72rem] font-semibold tracking-[0.16em] text-[#ff3036]">
               ACCESSORIES
             </p>
-            <h2 className="mt-3 text-[clamp(1.85rem,3.2vw,2.8rem)] font-semibold leading-[0.98] tracking-[-0.045em] text-[#243655]">
+            <h2 className="mt-4 sm:mt-5 text-[clamp(1.85rem,3.2vw,2.8rem)] font-semibold leading-[0.98] tracking-[-0.045em] text-[#243655]">
               Best Selling <span className="text-[#ff3036]">Accessories</span>
             </h2>
           </div>
 
-          <div className="mx-auto mt-11 grid max-w-[980px] grid-cols-2 gap-x-3 gap-y-6 sm:grid-cols-3 sm:gap-x-4 sm:gap-y-8">
+          <div className="mx-auto mt-6 grid w-full max-w-[820px] grid-cols-2 gap-x-[18px] gap-y-6 sm:mt-8 sm:grid-cols-3 sm:gap-x-10 sm:gap-y-8 lg:mt-10 lg:max-w-[900px] lg:gap-x-16 lg:gap-y-10">
             {bestSellingAccessories.map((accessory) => (
               <AccessoryShowcaseCard
                 key={accessory.label}
                 accessory={accessory}
               />
-            ))}
+            ))}y
           </div>
         </div>
       </section>
