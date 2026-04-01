@@ -210,6 +210,29 @@ const bestSellingAccessories = [
   },
 ];
 
+const whyElectroMallFeatures = [
+  {
+    title: "Genuine Warranty",
+    description: "All products come with official Apple warranty and support.",
+    Icon: ShieldTrustIcon,
+  },
+  {
+    title: "Authorized Reseller",
+    description: "Apple Authorized Reseller — 100% genuine products guaranteed.",
+    Icon: BadgeRibbonIcon,
+  },
+  {
+    title: "Fast Delivery",
+    description: "Quick and reliable delivery across Iraq.",
+    Icon: DeliveryTruckIcon,
+  },
+  {
+    title: "Expert Support",
+    description: "Dedicated team to help you choose the perfect Apple product.",
+    Icon: HeadsetSupportIcon,
+  },
+];
+
 function SearchIcon({ className = "h-[18px] w-[18px]" }) {
   return (
     <svg className={className} viewBox="0 0 24 24" aria-hidden="true">
@@ -340,6 +363,87 @@ function FlagIcon() {
         <path d="M12 0v24M0 12h24" stroke="#ffffff" strokeWidth="8" />
         <path d="M12 0v24M0 12h24" stroke="#d6252c" strokeWidth="4.2" />
       </g>
+    </svg>
+  );
+}
+
+function ShieldTrustIcon({ className = "h-[24px] w-[24px]" }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" aria-hidden="true">
+      <path
+        d="M12 3.25c1.47 1.2 3.42 1.83 5.32 1.83h.43v5.05c0 4.04-2.17 7.68-5.75 9.62-3.58-1.94-5.75-5.58-5.75-9.62V5.08h.43c1.9 0 3.85-.63 5.32-1.83Z"
+        fill="none"
+        stroke="currentColor"
+        strokeLinejoin="round"
+        strokeWidth="1.8"
+      />
+    </svg>
+  );
+}
+
+function BadgeRibbonIcon({ className = "h-[24px] w-[24px]" }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" aria-hidden="true">
+      <circle
+        cx="12"
+        cy="8.5"
+        r="4.75"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.8"
+      />
+      <path
+        d="m9.5 12.5-1.2 7.25 3.7-2.2 3.7 2.2-1.2-7.25"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="1.8"
+      />
+    </svg>
+  );
+}
+
+function DeliveryTruckIcon({ className = "h-[24px] w-[24px]" }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" aria-hidden="true">
+      <path
+        d="M4 6.5h8.75a1 1 0 0 1 1 1v7H4.75a.75.75 0 0 1-.75-.75V7.5a1 1 0 0 1 1-1Z"
+        fill="none"
+        stroke="currentColor"
+        strokeLinejoin="round"
+        strokeWidth="1.8"
+      />
+      <path
+        d="M13.75 9h3.17c.34 0 .66.15.88.41l2.01 2.39c.13.16.19.35.19.55v1.4a.75.75 0 0 1-.75.75h-5.5Z"
+        fill="none"
+        stroke="currentColor"
+        strokeLinejoin="round"
+        strokeWidth="1.8"
+      />
+      <circle cx="8.25" cy="16.75" r="1.75" fill="none" stroke="currentColor" strokeWidth="1.8" />
+      <circle cx="17.25" cy="16.75" r="1.75" fill="none" stroke="currentColor" strokeWidth="1.8" />
+    </svg>
+  );
+}
+
+function HeadsetSupportIcon({ className = "h-[24px] w-[24px]" }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" aria-hidden="true">
+      <path
+        d="M5 12a7 7 0 0 1 14 0"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeWidth="1.8"
+      />
+      <path
+        d="M6.75 11.75h1.1c.83 0 1.5.67 1.5 1.5v3c0 .83-.67 1.5-1.5 1.5h-1.1A1.75 1.75 0 0 1 5 16v-2.5c0-.97.78-1.75 1.75-1.75Zm9.4 0h1.1c.97 0 1.75.78 1.75 1.75V16a1.75 1.75 0 0 1-1.75 1.75h-1.1c-.83 0-1.5-.67-1.5-1.5v-3c0-.83.67-1.5 1.5-1.5Z"
+        fill="none"
+        stroke="currentColor"
+        strokeLinejoin="round"
+        strokeWidth="1.8"
+      />
     </svg>
   );
 }
@@ -544,6 +648,51 @@ function AccessoryShowcaseCard({ accessory }) {
   );
 }
 
+function WhyElectroMallFeature({ feature }) {
+  const { Icon } = feature;
+
+  return (
+    <article className="group flex flex-col items-center text-center">
+      <span className="flex h-[72px] w-[72px] items-center justify-center rounded-[20px] bg-[#fdf0f1] text-[#ff3036] transition duration-300 group-hover:-translate-y-1 group-hover:bg-[#fde6e8] sm:h-[76px] sm:w-[76px]">
+        <Icon className="h-[26px] w-[26px]" />
+      </span>
+
+      <h3 className="mt-5 text-[1.05rem] font-semibold leading-[1.2] tracking-[-0.03em] text-[#111216] sm:text-[1.12rem]">
+        {feature.title}
+      </h3>
+      <p className="mt-2 max-w-[18ch] text-[0.94rem] leading-[1.6] text-[#70798b] sm:max-w-[20ch] sm:text-[0.98rem]">
+        {feature.description}
+      </p>
+    </article>
+  );
+}
+
+function WhyElectroMallSection() {
+  return (
+    <section
+      className="bg-white px-3 py-[58px] sm:px-3 sm:py-[68px] md:px-[14px] lg:px-4 lg:py-[82px]"
+      aria-label="Why ElectroMall"
+    >
+      <div className="mx-auto max-w-[1180px]">
+        <div className="mx-auto max-w-[860px] text-center">
+          <p className="text-[0.82rem] font-semibold tracking-[0.22em] text-[#ff3036] sm:text-[0.9rem]">
+            WHY ELECTROMALL
+          </p>
+          <h2 className="mt-4 text-[clamp(2.25rem,4.8vw,4rem)] font-semibold leading-[0.96] tracking-[-0.05em] text-[#111216]">
+            The Apple experience you deserve.
+          </h2>
+        </div>
+
+        <div className="mx-auto mt-12 grid max-w-[1140px] gap-x-8 gap-y-12 sm:mt-14 sm:grid-cols-2 sm:gap-y-14 lg:mt-[72px] lg:grid-cols-4 lg:gap-x-10">
+          {whyElectroMallFeatures.map((feature) => (
+            <WhyElectroMallFeature key={feature.title} feature={feature} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function HomePage() {
   return (
     <main className="min-h-screen bg-white text-[#283241]">
@@ -728,6 +877,8 @@ export default function HomePage() {
           subtitle="Loved by our customers in Erbil."
           ariaLabel="Best sellers"
         />
+
+        <WhyElectroMallSection />
       </div>
     </main>
   );
