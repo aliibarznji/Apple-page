@@ -25,15 +25,24 @@ function ArrowIcon({ className = "h-[13px] w-[13px]" }) {
   );
 }
 
-function NewArrivalCard({ product }) {
+function NewArrivalCard({ product, onDragStart }) {
   return (
-    <article className="min-w-[200px] snap-start sm:min-w-[216px] lg:min-w-[232px]">
-      <a className="group block no-underline" href="#">
+    <article
+      className="min-w-[200px] snap-start sm:min-w-[216px] lg:min-w-[232px]"
+      draggable={false}
+      onDragStart={onDragStart}
+    >
+      <a
+        className="group block select-none no-underline"
+        href="#"
+        draggable={false}
+        onDragStart={onDragStart}
+      >
         <div
-          className={`flex min-h-[185px] items-center justify-center overflow-hidden rounded-[20px] border border-[#eff0f2] px-3.5 py-4 transition duration-200 group-hover:-translate-y-0.5 group-hover:shadow-[0_10px_20px_rgba(15,23,42,0.05)] sm:min-h-[200px] ${product.panelClassName}`}
+          className={`pointer-events-none flex min-h-[185px] items-center justify-center overflow-hidden rounded-[20px] border border-[#eff0f2] px-3.5 py-4 transition duration-200 group-hover:-translate-y-0.5 group-hover:shadow-[0_10px_20px_rgba(15,23,42,0.05)] sm:min-h-[200px] ${product.panelClassName}`}
         >
           <Image
-            className={`h-auto w-auto object-contain ${product.imageClassName}`}
+            className={`pointer-events-none h-auto w-auto object-contain ${product.imageClassName}`}
             src={product.src}
             alt={product.alt}
             width={product.width}
@@ -43,7 +52,7 @@ function NewArrivalCard({ product }) {
           />
         </div>
 
-        <div className="pt-3">
+        <div className="pointer-events-none pt-3">
           <h3 className="max-w-[18ch] text-[0.84rem] font-medium leading-[1.35] text-[#1d1d1f] sm:text-[0.88rem]">
             {product.name}
           </h3>
@@ -140,6 +149,7 @@ export default function NewArrivalsSection({
       return;
     }
 
+    event.preventDefault();
     stopMomentum();
 
     dragStateRef.current.pointerId = event.pointerId;
@@ -176,7 +186,9 @@ export default function NewArrivalsSection({
       return;
     }
 
-    event.preventDefault();
+    if (event.cancelable) {
+      event.preventDefault();
+    }
     scroller.scrollLeft = dragStateRef.current.startScrollLeft - deltaX;
 
     const deltaTime = event.timeStamp - dragStateRef.current.lastTimestamp;
@@ -218,6 +230,16 @@ export default function NewArrivalsSection({
     }
   }
 
+  function handleClickCapture(event) {
+    if (!dragStateRef.current.preventClick) {
+      return;
+    }
+
+    dragStateRef.current.preventClick = false;
+    event.preventDefault();
+    event.stopPropagation();
+  }
+
   function handlePointerUp(event) {
     if (dragStateRef.current.pointerId !== event.pointerId) {
       return;
@@ -243,14 +265,8 @@ export default function NewArrivalsSection({
     finishDragging(event.pointerId);
   }
 
-  function handleClickCapture(event) {
-    if (!dragStateRef.current.preventClick) {
-      return;
-    }
-
-    dragStateRef.current.preventClick = false;
+  function handleNativeDragStart(event) {
     event.preventDefault();
-    event.stopPropagation();
   }
 
   return (
@@ -284,14 +300,19 @@ export default function NewArrivalsSection({
             className={`new-arrivals-scroll flex snap-x snap-proximity gap-3.5 overflow-x-auto pb-3 sm:gap-4 lg:gap-5 ${isDragging ? "select-none" : ""}`}
             data-dragging={isDragging ? "true" : "false"}
             onClickCapture={handleClickCapture}
+            onDragStart={handleNativeDragStart}
             onPointerCancel={handlePointerCancel}
-            onPointerDown={handlePointerDown}
+            onPointerDownCapture={handlePointerDown}
             onPointerMove={handlePointerMove}
             onPointerUp={handlePointerUp}
             onLostPointerCapture={handleLostPointerCapture}
           >
             {products.map((product) => (
-              <NewArrivalCard key={product.name} product={product} />
+              <NewArrivalCard
+                key={product.name}
+                product={product}
+                onDragStart={handleNativeDragStart}
+              />
             ))}
           </div>
         </div>

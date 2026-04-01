@@ -1,0 +1,322 @@
+- main [ref=e2]:
+  - generic [ref=e3]:
+    - generic [ref=e4]:
+      - link "Electro Mall home" [ref=e5] [cursor=pointer]:
+        - /url: "#"
+        - img "Electro Mall" [ref=e6]
+      - search [ref=e7]:
+        - generic [ref=e8]: Search products
+        - searchbox "Search products" [ref=e9]
+        - button "Search" [ref=e10]:
+          - img [ref=e11]
+          - generic [ref=e14]: Search
+      - navigation "Quick actions" [ref=e15]:
+        - link "Ali Baeiz" [ref=e16] [cursor=pointer]:
+          - /url: "#"
+          - img [ref=e17]
+          - generic [ref=e20]: Ali Baeiz
+        - link "Need help ?" [ref=e21] [cursor=pointer]:
+          - /url: "#"
+        - link "Wishlist" [ref=e22] [cursor=pointer]:
+          - /url: "#"
+          - img [ref=e23]
+        - link "Notifications" [ref=e25] [cursor=pointer]:
+          - /url: "#"
+          - img [ref=e26]
+        - link "Cart" [ref=e29] [cursor=pointer]:
+          - /url: "#"
+          - img [ref=e30]
+        - button "Select language and region" [ref=e34]:
+          - img [ref=e42]
+    - navigation "Shop links" [ref=e44]:
+      - generic [ref=e45]:
+        - link "Store" [ref=e46] [cursor=pointer]:
+          - /url: "#"
+        - link "Mac" [ref=e47] [cursor=pointer]:
+          - /url: "#"
+        - link "iPad" [ref=e48] [cursor=pointer]:
+          - /url: "#"
+        - link "iPhone" [ref=e49] [cursor=pointer]:
+          - /url: "#"
+        - link "Watch" [ref=e50] [cursor=pointer]:
+          - /url: "#"
+        - link "AirPods" [ref=e51] [cursor=pointer]:
+          - /url: "#"
+        - link "TV & Home" [ref=e52] [cursor=pointer]:
+          - /url: "#"
+        - link "Accessories" [ref=e53] [cursor=pointer]:
+          - /url: "#"
+  - region "iPhone hero" [ref=e54]:
+    - generic [ref=e55]:
+      - generic [ref=e56]:
+        - paragraph [ref=e57]: NEW
+        - heading "iPhone" [level=1] [ref=e58]
+        - paragraph [ref=e59]: Meet the latest iPhone lineup.
+        - generic [ref=e60]:
+          - link "Learn more" [ref=e61] [cursor=pointer]:
+            - /url: "#"
+            - generic [ref=e62]: Learn more
+            - img [ref=e63]
+          - link "Shop iPhone" [ref=e65] [cursor=pointer]:
+            - /url: "#"
+            - generic [ref=e66]: Shop iPhone
+            - img [ref=e67]
+      - img "iPhone 17 Pro models" [ref=e70]
+  - region "MacBook Pro hero" [ref=e71]:
+    - generic [ref=e72]:
+      - generic [ref=e73]:
+        - paragraph [ref=e74]: NEW
+        - heading "MacBook Pro" [level=1] [ref=e75]
+        - paragraph [ref=e76]: The ultimate pro computer.
+        - generic [ref=e77]:
+          - link "Learn more" [ref=e78] [cursor=pointer]:
+            - /url: "#"
+            - generic [ref=e79]: Learn more
+            - img [ref=e80]
+          - link "Shop MacBook Pro" [ref=e82] [cursor=pointer]:
+            - /url: "#"
+            - generic [ref=e83]: Shop MacBook Pro
+            - img [ref=e84]
+      - img "MacBook Pro models" [ref=e87]
+  - generic [ref=e88]:
+    - region "Shop categories" [ref=e89]:
+      - generic [ref=e90]:
+        - link "iPhone category iPhone" [ref=e91] [cursor=pointer]:
+          - /url: "#"
+          - img "iPhone category" [ref=e93]
+          - generic [ref=e94]: iPhone
+        - link "Apple Watch category Apple Watch" [ref=e95] [cursor=pointer]:
+          - /url: "#"
+          - img "Apple Watch category" [ref=e97]
+          - generic [ref=e98]: Apple Watch
+        - link "iPad category iPad" [ref=e99] [cursor=pointer]:
+          - /url: "#"
+          - img "iPad category" [ref=e101]
+          - generic [ref=e102]: iPad
+        - link "Mac category Mac" [ref=e103] [cursor=pointer]:
+          - /url: "#"
+          - img "Mac category" [ref=e105]
+          - generic [ref=e106]: Mac
+        - link "TV and Home category TV & Home" [ref=e107] [cursor=pointer]:
+          - /url: "#"
+          - img "TV and Home category" [ref=e109]
+          - generic [ref=e110]: TV & Home
+        - link "AirPods category AirPods" [ref=e111] [cursor=pointer]:
+          - /url: "#"
+          - img "AirPods category" [ref=e113]
+          - generic [ref=e114]: AirPods
+    - region "New arrivals" [ref=e115]:
+      - generic [ref=e116]:
+        - generic [ref=e117]:
+          - generic [ref=e118]:
+            - heading "New Arrivals" [level=2] [ref=e119]
+            - paragraph [ref=e120]: The latest Apple favorites, just landed.
+          - link "View All" [ref=e121] [cursor=pointer]:
+            - /url: "#"
+            - generic [ref=e122]: View All
+            - img [ref=e123]
+        - generic [ref=e126]:
+          - article [ref=e127]:
+            - link "iPhone 17 Pro iPhone 17 Pro 72,000 IQD" [ref=e128] [cursor=pointer]:
+              - /url: "#"
+              - img "iPhone 17 Pro" [ref=e130]
+              - generic [ref=e131]:
+                - heading "iPhone 17 Pro" [level=3] [ref=e132]
+                - paragraph [ref=e133]: 72,000 IQD
+          - article [ref=e134]:
+            - link "Apple Watch Apple Watch Series 10 69,000 IQD" [ref=e135] [cursor=pointer]:
+              - /url: "#"
+              - img "Apple Watch" [ref=e137]
+              - generic [ref=e138]:
+                - heading "Apple Watch Series 10" [level=3] [ref=e139]
+                - paragraph [ref=e140]: 69,000 IQD
+          - article [ref=e141]:
+            - link "AirPods Pro AirPods Pro 84,000 IQD" [ref=e142] [cursor=pointer]:
+              - /url: "#"
+              - img "AirPods Pro" [ref=e144]
+              - generic [ref=e145]:
+                - heading "AirPods Pro" [level=3] [ref=e146]
+                - paragraph [ref=e147]: 84,000 IQD
+          - article [ref=e148]:
+            - link "iPad Air iPad Air 95,000 IQD" [ref=e149] [cursor=pointer]:
+              - /url: "#"
+              - img "iPad Air" [ref=e151]
+              - generic [ref=e152]:
+                - heading "iPad Air" [level=3] [ref=e153]
+                - paragraph [ref=e154]: 95,000 IQD
+          - article [ref=e155]:
+            - link "MacBook Pro MacBook Pro 112,000 IQD" [ref=e156] [cursor=pointer]:
+              - /url: "#"
+              - img "MacBook Pro" [ref=e158]
+              - generic [ref=e159]:
+                - heading "MacBook Pro" [level=3] [ref=e160]
+                - paragraph [ref=e161]: 112,000 IQD
+    - region "Featured Apple widgets" [ref=e162]:
+      - generic [ref=e163]:
+        - generic [ref=e165]:
+          - paragraph [ref=e166]: EXPLORE
+          - heading "More from Apple." [level=2] [ref=e167]
+        - generic [ref=e168]:
+          - article [ref=e169]:
+            - generic [ref=e170]:
+              - heading "iPad Pro" [level=3] [ref=e171]
+              - paragraph [ref=e172]: Supercharged by M4.
+              - generic [ref=e173]:
+                - link "Learn more" [ref=e174] [cursor=pointer]:
+                  - /url: "#"
+                  - generic [ref=e175]: Learn more
+                  - img [ref=e176]
+                - link "Shop" [ref=e178] [cursor=pointer]:
+                  - /url: "#"
+                  - generic [ref=e179]: Shop
+                  - img [ref=e180]
+            - img "iPad Pro" [ref=e184]
+          - article [ref=e185]:
+            - generic [ref=e186]:
+              - heading "Apple Watch" [level=3] [ref=e187]
+              - paragraph [ref=e188]: The ultimate way to stay healthy.
+              - generic [ref=e189]:
+                - link "Learn more" [ref=e190] [cursor=pointer]:
+                  - /url: "#"
+                  - generic [ref=e191]: Learn more
+                  - img [ref=e192]
+                - link "Shop" [ref=e194] [cursor=pointer]:
+                  - /url: "#"
+                  - generic [ref=e195]: Shop
+                  - img [ref=e196]
+            - img "Apple Watch" [ref=e200]
+          - article [ref=e201]:
+            - generic [ref=e202]:
+              - heading "AirPods Pro" [level=3] [ref=e203]
+              - paragraph [ref=e204]: Adaptive Audio. Now playing.
+              - generic [ref=e205]:
+                - link "Learn more" [ref=e206] [cursor=pointer]:
+                  - /url: "#"
+                  - generic [ref=e207]: Learn more
+                  - img [ref=e208]
+                - link "Shop" [ref=e210] [cursor=pointer]:
+                  - /url: "#"
+                  - generic [ref=e211]: Shop
+                  - img [ref=e212]
+            - img "AirPods Pro" [ref=e216]
+          - article [ref=e217]:
+            - generic [ref=e218]:
+              - heading "TV & Home" [level=3] [ref=e219]
+              - paragraph [ref=e220]: Cinema. Music. More at home.
+              - generic [ref=e221]:
+                - link "Learn more" [ref=e222] [cursor=pointer]:
+                  - /url: "#"
+                  - generic [ref=e223]: Learn more
+                  - img [ref=e224]
+                - link "Shop" [ref=e226] [cursor=pointer]:
+                  - /url: "#"
+                  - generic [ref=e227]: Shop
+                  - img [ref=e228]
+            - img "TV and Home" [ref=e232]
+    - region "Best selling accessories" [ref=e233]:
+      - generic [ref=e234]:
+        - generic [ref=e235]:
+          - paragraph [ref=e236]: ACCESSORIES
+          - heading "Best Selling Accessories" [level=2] [ref=e237]
+        - generic [ref=e238]:
+          - article [ref=e239]:
+            - link "Cables and connector accessories Cables & Connector" [ref=e240] [cursor=pointer]:
+              - /url: "#"
+              - img "Cables and connector accessories" [ref=e242]
+              - heading "Cables & Connector" [level=3] [ref=e243]
+          - article [ref=e244]:
+            - link "Apple Watch bands Apple Watch Bands" [ref=e245] [cursor=pointer]:
+              - /url: "#"
+              - img "Apple Watch bands" [ref=e247]
+              - heading "Apple Watch Bands" [level=3] [ref=e248]
+          - article [ref=e249]:
+            - link "Power adapter Power Adapter" [ref=e250] [cursor=pointer]:
+              - /url: "#"
+              - img "Power adapter" [ref=e252]
+              - heading "Power Adapter" [level=3] [ref=e253]
+          - article [ref=e254]:
+            - link "Phone covers Phone Covers" [ref=e255] [cursor=pointer]:
+              - /url: "#"
+              - generic [ref=e256]:
+                - img "Phone covers"
+              - heading "Phone Covers" [level=3] [ref=e257]
+          - article [ref=e258]:
+            - link "Apple Pencil Apple Pencil" [ref=e259] [cursor=pointer]:
+              - /url: "#"
+              - generic [ref=e260]:
+                - img "Apple Pencil"
+              - heading "Apple Pencil" [level=3] [ref=e261]
+          - article [ref=e262]:
+            - link "iPad smart covers iPad Smart Covers" [ref=e263] [cursor=pointer]:
+              - /url: "#"
+              - generic [ref=e264]:
+                - img "iPad smart covers"
+              - heading "iPad Smart Covers" [level=3] [ref=e265]
+    - region "Best sellers" [ref=e266]:
+      - generic [ref=e267]:
+        - generic [ref=e268]:
+          - generic [ref=e269]:
+            - heading "Best Sellers" [level=2] [ref=e270]
+            - paragraph [ref=e271]: Loved by our customers in Erbil.
+          - link "View All" [ref=e272] [cursor=pointer]:
+            - /url: "#"
+            - generic [ref=e273]: View All
+            - img [ref=e274]
+        - generic [ref=e277]:
+          - article [ref=e278]:
+            - link "iPhone 17 Pro iPhone 17 Pro 72,000 IQD" [ref=e279] [cursor=pointer]:
+              - /url: "#"
+              - img "iPhone 17 Pro" [ref=e281]
+              - generic [ref=e282]:
+                - heading "iPhone 17 Pro" [level=3] [ref=e283]
+                - paragraph [ref=e284]: 72,000 IQD
+          - article [ref=e285]:
+            - link "Apple Watch Apple Watch Series 10 69,000 IQD" [ref=e286] [cursor=pointer]:
+              - /url: "#"
+              - img "Apple Watch" [ref=e288]
+              - generic [ref=e289]:
+                - heading "Apple Watch Series 10" [level=3] [ref=e290]
+                - paragraph [ref=e291]: 69,000 IQD
+          - article [ref=e292]:
+            - link "AirPods Pro AirPods Pro 84,000 IQD" [ref=e293] [cursor=pointer]:
+              - /url: "#"
+              - img "AirPods Pro" [ref=e295]
+              - generic [ref=e296]:
+                - heading "AirPods Pro" [level=3] [ref=e297]
+                - paragraph [ref=e298]: 84,000 IQD
+          - article [ref=e299]:
+            - link "iPad Air iPad Air 95,000 IQD" [ref=e300] [cursor=pointer]:
+              - /url: "#"
+              - img "iPad Air" [ref=e302]
+              - generic [ref=e303]:
+                - heading "iPad Air" [level=3] [ref=e304]
+                - paragraph [ref=e305]: 95,000 IQD
+          - article [ref=e306]:
+            - link "MacBook Pro MacBook Pro 112,000 IQD" [ref=e307] [cursor=pointer]:
+              - /url: "#"
+              - img "MacBook Pro" [ref=e309]
+              - generic [ref=e310]:
+                - heading "MacBook Pro" [level=3] [ref=e311]
+                - paragraph [ref=e312]: 112,000 IQD
+    - region "Why ElectroMall" [ref=e313]:
+      - generic [ref=e314]:
+        - generic [ref=e315]:
+          - paragraph [ref=e316]: WHY ELECTROMALL
+          - heading "The Apple experience you deserve." [level=2] [ref=e317]
+        - generic [ref=e318]:
+          - article [ref=e319]:
+            - img [ref=e321]
+            - heading "Genuine Warranty" [level=3] [ref=e323]
+            - paragraph [ref=e324]: All products come with official Apple warranty and support.
+          - article [ref=e325]:
+            - img [ref=e327]
+            - heading "Authorized Reseller" [level=3] [ref=e330]
+            - paragraph [ref=e331]: Apple Authorized Reseller — 100% genuine products guaranteed.
+          - article [ref=e332]:
+            - img [ref=e334]
+            - heading "Fast Delivery" [level=3] [ref=e339]
+            - paragraph [ref=e340]: Quick and reliable delivery across Iraq.
+          - article [ref=e341]:
+            - img [ref=e343]
+            - heading "Expert Support" [level=3] [ref=e346]
+            - paragraph [ref=e347]: Dedicated team to help you choose the perfect Apple product.
