@@ -696,7 +696,7 @@ function WhyElectroMallSection() {
 export default function HomePage() {
   return (
     <main className="min-h-screen bg-white text-[#283241]">
-      <header className="bg-white">
+      <header className="sticky top-0 z-50 border-b border-black/5 bg-white/95 backdrop-blur-md supports-[backdrop-filter]:bg-white/80">
         <div className="grid min-h-[48px] items-center gap-2 px-3 py-1.5 sm:grid-cols-[112px_minmax(0,1fr)_auto] sm:px-[10px] md:grid-cols-[132px_minmax(200px,1fr)_auto] md:gap-3 md:px-[14px] lg:grid-cols-[170px_minmax(280px,1fr)_auto] lg:gap-[14px] lg:px-4 xl:grid-cols-[200px_minmax(300px,1fr)_auto] xl:gap-5 xl:px-6">
           <a className="inline-flex items-center" href="#" aria-label="Electro Mall home">
             <Image
