@@ -13,6 +13,24 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+.content-section-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+@media (min-width: 640px) {
+  .content-section-stack {
+    gap: 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .content-section-stack {
+    gap: 4rem;
+  }
+}
+
 .new-arrivals-scroll {
   scrollbar-width: none;
   -ms-overflow-style: none;

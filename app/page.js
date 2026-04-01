@@ -662,64 +662,73 @@ export default function HomePage() {
         wideTitle
       />
 
-      <section className="bg-white px-3 pb-[42px] pt-[28px] sm:px-3 sm:pb-12 sm:pt-8 md:px-[14px] lg:px-4 lg:pb-[58px] lg:pt-[38px]" aria-label="Shop categories">
-        <div className="mx-auto grid w-full max-w-[1060px] grid-cols-2 gap-x-[10px] gap-y-3 sm:grid-cols-3 sm:gap-x-4 sm:gap-y-[18px] lg:grid-cols-6 lg:gap-6">
-          {marketingCategories.map((category) => (
-            <MarketingCategory category={category} key={category.label} />
-          ))}
-        </div>
-      </section>
-
-      <NewArrivalsSection products={newArrivalProducts} />
-
-      <section
-        className="bg-white px-3 pb-[72px] pt-0 sm:px-3 sm:pb-[84px] md:px-[14px] lg:px-4 lg:pb-[96px]"
-        aria-label="Featured Apple widgets"
-      >
-        <div className="mx-auto max-w-[1060px]">
-          <div className="pb-6 sm:pb-7">
-            <div>
-              <p className="text-[0.72rem] font-semibold tracking-[0.16em] text-[#ff3036]">
-                EXPLORE
-              </p>
-              <h2 className="mt-2 text-[clamp(1.75rem,3vw,2.7rem)] font-semibold leading-[0.96] tracking-[-0.045em] text-[#1d1d1f]">
-                More from Apple.
-              </h2>
-            </div>
-          </div>
-
-          <div className="grid gap-3.5 md:grid-cols-2 md:gap-4 lg:gap-5">
-            {featuredPromoTiles.map((tile) => (
-              <FeaturedPromoTile key={tile.title} tile={tile} />
+      <div className="content-section-stack bg-white">
+        <section className="bg-white px-3 pb-[42px] pt-[28px] sm:px-3 sm:pb-12 sm:pt-8 md:px-[14px] lg:px-4 lg:pb-[58px] lg:pt-[38px]" aria-label="Shop categories">
+          <div className="mx-auto grid w-full max-w-[1060px] grid-cols-2 gap-x-[10px] gap-y-3 sm:grid-cols-3 sm:gap-x-4 sm:gap-y-[18px] lg:grid-cols-6 lg:gap-6">
+            {marketingCategories.map((category) => (
+              <MarketingCategory category={category} key={category.label} />
             ))}
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section
-        className="bg-white px-3 pb-[84px] pt-[22px] sm:px-3 sm:pb-[96px] sm:pt-[30px] md:px-[14px] lg:px-4 lg:pb-[108px] lg:pt-[36px]"
-        aria-label="Best selling accessories"
-      >
-        <div className="mx-auto max-w-[1060px]">
-          <div className="mx-auto max-w-[520px] pb-5 text-center sm:pb-6">
-            <p className="text-[0.72rem] font-semibold tracking-[0.16em] text-[#ff3036]">
-              ACCESSORIES
-            </p>
-            <h2 className="mt-4 sm:mt-5 text-[clamp(1.85rem,3.2vw,2.8rem)] font-semibold leading-[0.98] tracking-[-0.045em] text-[#243655]">
-              Best Selling <span className="text-[#ff3036]">Accessories</span>
-            </h2>
-          </div>
+        <NewArrivalsSection products={newArrivalProducts} />
 
-          <div className="mx-auto mt-6 grid w-full max-w-[820px] grid-cols-2 gap-x-[18px] gap-y-6 sm:mt-8 sm:grid-cols-3 sm:gap-x-10 sm:gap-y-8 lg:mt-10 lg:max-w-[900px] lg:gap-x-16 lg:gap-y-10">
-            {bestSellingAccessories.map((accessory) => (
-              <AccessoryShowcaseCard
-                key={accessory.label}
-                accessory={accessory}
-              />
-            ))}y
+        <section
+          className="bg-white px-3 pb-[72px] pt-0 sm:px-3 sm:pb-[84px] md:px-[14px] lg:px-4 lg:pb-[96px]"
+          aria-label="Featured Apple widgets"
+        >
+          <div className="mx-auto max-w-[1060px]">
+            <div className="pb-6 sm:pb-7">
+              <div>
+                <p className="text-[0.72rem] font-semibold tracking-[0.16em] text-[#ff3036]">
+                  EXPLORE
+                </p>
+                <h2 className="mt-2 text-[clamp(1.75rem,3vw,2.7rem)] font-semibold leading-[0.96] tracking-[-0.045em] text-[#1d1d1f]">
+                  More from Apple.
+                </h2>
+              </div>
+            </div>
+
+            <div className="grid gap-3.5 md:grid-cols-2 md:gap-4 lg:gap-5">
+              {featuredPromoTiles.map((tile) => (
+                <FeaturedPromoTile key={tile.title} tile={tile} />
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+
+        <section
+          className="bg-white px-3 pb-[84px] pt-0 sm:px-3 sm:pb-[96px] md:px-[14px] lg:px-4 lg:pb-[108px]"
+          aria-label="Best selling accessories"
+        >
+          <div className="mx-auto max-w-[1060px]">
+            <div className="mx-auto max-w-[520px] pb-5 text-center sm:pb-6">
+              <p className="text-[0.72rem] font-semibold tracking-[0.16em] text-[#ff3036]">
+                ACCESSORIES
+              </p>
+              <h2 className="mt-4 text-[clamp(1.85rem,3.2vw,2.8rem)] font-semibold leading-[0.98] tracking-[-0.045em] text-[#243655] sm:mt-5">
+                Best Selling <span className="text-[#ff3036]">Accessories</span>
+              </h2>
+            </div>
+
+            <div className="mx-auto mt-6 grid w-full max-w-[820px] grid-cols-2 gap-x-[18px] gap-y-6 sm:mt-8 sm:grid-cols-3 sm:gap-x-10 sm:gap-y-8 lg:mt-10 lg:max-w-[900px] lg:gap-x-16 lg:gap-y-10">
+              {bestSellingAccessories.map((accessory) => (
+                <AccessoryShowcaseCard
+                  key={accessory.label}
+                  accessory={accessory}
+                />
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <NewArrivalsSection
+          products={newArrivalProducts}
+          title="Best Sellers"
+          subtitle="Loved by our customers in Erbil."
+          ariaLabel="Best sellers"
+        />
+      </div>
     </main>
   );
 }

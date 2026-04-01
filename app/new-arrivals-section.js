@@ -56,7 +56,13 @@ function NewArrivalCard({ product }) {
   );
 }
 
-export default function NewArrivalsSection({ products }) {
+export default function NewArrivalsSection({
+  products,
+  title = "New Arrivals",
+  subtitle = "The latest Apple favorites, just landed.",
+  ariaLabel = "New arrivals",
+  className = "",
+}) {
   const scrollerRef = useRef(null);
   const momentumFrameRef = useRef(null);
   const dragStateRef = useRef({
@@ -249,17 +255,17 @@ export default function NewArrivalsSection({ products }) {
 
   return (
     <section
-      className="bg-white px-3 pb-[56px] pt-[6px] sm:px-3 sm:pb-[68px] md:px-[14px] lg:px-4 lg:pb-[80px]"
-      aria-label="New arrivals"
+      className={`bg-white px-3 pb-[56px] pt-0 sm:px-3 sm:pb-[68px] md:px-[14px] lg:px-4 lg:pb-[80px] ${className}`}
+      aria-label={ariaLabel}
     >
       <div className="mx-auto max-w-[1060px]">
         <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <h2 className="text-[clamp(1.6rem,3vw,2.6rem)] font-semibold leading-[0.95] tracking-[-0.04em] text-[#1d1d1f]">
-              New Arrivals
+              {title}
             </h2>
             <p className="mt-1.5 text-[0.86rem] leading-[1.5] text-[#6e6e73] sm:text-[0.9rem]">
-              The latest Apple favorites, just landed.
+              {subtitle}
             </p>
           </div>
 
