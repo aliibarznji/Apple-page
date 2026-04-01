@@ -1,4 +1,6 @@
 node_modules
 .next
 out
+.playwright-cli
+output
 npm-debug.log*

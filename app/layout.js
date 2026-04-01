@@ -10,9 +10,9 @@ export const metadata = {
   title: "Electro Mall Apple Collection",
   description: "Electro Mall storefront recreated with Next.js and Tailwind CSS",
   icons: {
-    icon: "/logo/images.png",
-    shortcut: "/logo/images.png",
-    apple: "/logo/images.png",
+    icon: "/branding/favicon.png",
+    shortcut: "/branding/favicon.png",
+    apple: "/branding/favicon.png",
   },
 };
 

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import NewArrivalsSection from "./new-arrivals-section";
+import ProductCarouselSection from "./components/product-carousel-section";
 
 const secondaryLinks = [
   { label: "Store" },
@@ -15,42 +15,42 @@ const secondaryLinks = [
 const marketingCategories = [
   {
     label: "iPhone",
-    src: "/Marketing%20category/iphone.avif",
+    src: "/categories/iphone.avif",
     alt: "iPhone category",
     width: 72,
     height: 72,
   },
   {
     label: "Apple Watch",
-    src: "/Marketing%20category/apple%20watch.avif",
+    src: "/categories/apple-watch.avif",
     alt: "Apple Watch category",
     width: 72,
     height: 72,
   },
   {
     label: "iPad",
-    src: "/Marketing%20category/Ipads.avif",
+    src: "/categories/ipad.avif",
     alt: "iPad category",
     width: 78,
     height: 72,
   },
   {
     label: "Mac",
-    src: "/Marketing%20category/macbook.avif",
+    src: "/categories/macbook.avif",
     alt: "Mac category",
     width: 84,
     height: 72,
   },
   {
     label: "TV & Home",
-    src: "/Marketing%20category/home%20and%20tv.avif",
+    src: "/categories/home-tv.avif",
     alt: "TV and Home category",
     width: 72,
     height: 72,
   },
   {
     label: "AirPods",
-    src: "/Marketing%20category/airpods.avif",
+    src: "/categories/airpods.avif",
     alt: "AirPods category",
     width: 72,
     height: 72,
@@ -61,7 +61,7 @@ const newArrivalProducts = [
   {
     name: "iPhone 17 Pro",
     price: "72,000 IQD",
-    src: "/iphone-17-pro-model-unselect-gallery-1-202509-removebg-preview.png",
+    src: "/heroes/iphone-17-pro.png",
     alt: "iPhone 17 Pro",
     width: 666,
     height: 500,
@@ -71,7 +71,7 @@ const newArrivalProducts = [
   {
     name: "Apple Watch Series 10",
     price: "69,000 IQD",
-    src: "/Marketing%20category/apple%20watch.avif",
+    src: "/categories/apple-watch.avif",
     alt: "Apple Watch",
     width: 72,
     height: 72,
@@ -81,7 +81,7 @@ const newArrivalProducts = [
   {
     name: "AirPods Pro",
     price: "84,000 IQD",
-    src: "/Marketing%20category/airpods.avif",
+    src: "/categories/airpods.avif",
     alt: "AirPods Pro",
     width: 72,
     height: 72,
@@ -91,7 +91,7 @@ const newArrivalProducts = [
   {
     name: "iPad Air",
     price: "95,000 IQD",
-    src: "/Marketing%20category/Ipads.avif",
+    src: "/categories/ipad.avif",
     alt: "iPad Air",
     width: 78,
     height: 72,
@@ -101,7 +101,7 @@ const newArrivalProducts = [
   {
     name: "MacBook Pro",
     price: "112,000 IQD",
-    src: "/Marketing%20category/macbook.avif",
+    src: "/categories/macbook.avif",
     alt: "MacBook Pro",
     width: 84,
     height: 72,
@@ -116,7 +116,7 @@ const featuredPromoTiles = [
     subtitle: "Supercharged by M4.",
     primaryAction: "Learn more",
     secondaryAction: "Shop",
-    src: "/Marketing%20category/Ipads.avif",
+    src: "/categories/ipad.avif",
     alt: "iPad Pro",
     width: 78,
     height: 72,
@@ -129,7 +129,7 @@ const featuredPromoTiles = [
     subtitle: "The ultimate way to stay healthy.",
     primaryAction: "Learn more",
     secondaryAction: "Shop",
-    src: "/Marketing%20category/apple%20watch.avif",
+    src: "/categories/apple-watch.avif",
     alt: "Apple Watch",
     width: 72,
     height: 72,
@@ -142,7 +142,7 @@ const featuredPromoTiles = [
     subtitle: "Adaptive Audio. Now playing.",
     primaryAction: "Learn more",
     secondaryAction: "Shop",
-    src: "/Marketing%20category/airpods.avif",
+    src: "/categories/airpods.avif",
     alt: "AirPods Pro",
     width: 72,
     height: 72,
@@ -155,7 +155,7 @@ const featuredPromoTiles = [
     subtitle: "Cinema. Music. More at home.",
     primaryAction: "Learn more",
     secondaryAction: "Shop",
-    src: "/Marketing%20category/home%20and%20tv.avif",
+    src: "/categories/home-tv.avif",
     alt: "TV and Home",
     width: 72,
     height: 72,
@@ -168,42 +168,42 @@ const featuredPromoTiles = [
 const bestSellingAccessories = [
   {
     label: "Cables & Connector",
-    src: "/accessories/Cables%20%26%20Connector.avif",
+    src: "/accessories/cables-connector.avif",
     alt: "Cables and connector accessories",
     imageClassName:
       "max-h-[44px] max-w-[58px] sm:max-h-[48px] sm:max-w-[62px] lg:max-h-[54px] lg:max-w-[68px]",
   },
   {
     label: "Apple Watch Bands",
-    src: "/accessories/Apple%20Watch%20Bands.avif",
+    src: "/accessories/apple-watch-bands.avif",
     alt: "Apple Watch bands",
     imageClassName:
       "max-h-[42px] max-w-[52px] sm:max-h-[46px] sm:max-w-[56px] lg:max-h-[50px] lg:max-w-[60px]",
   },
   {
     label: "Power Adapter",
-    src: "/accessories/Power%20Adapter.avif",
+    src: "/accessories/power-adapter.avif",
     alt: "Power adapter",
     imageClassName:
       "max-h-[46px] max-w-[42px] sm:max-h-[50px] sm:max-w-[46px] lg:max-h-[56px] lg:max-w-[52px]",
   },
   {
     label: "Phone Covers",
-    src: "/accessories/Phone%20Covers.avif",
+    src: "/accessories/phone-covers.avif",
     alt: "Phone covers",
     imageClassName:
       "max-h-[46px] max-w-[40px] sm:max-h-[50px] sm:max-w-[44px] lg:max-h-[56px] lg:max-w-[48px]",
   },
   {
     label: "Apple Pencil",
-    src: "/accessories/Apple%20Pencil.avif",
+    src: "/accessories/apple-pencil.avif",
     alt: "Apple Pencil",
     imageClassName:
       "max-h-[44px] max-w-[52px] sm:max-h-[48px] sm:max-w-[56px] lg:max-h-[54px] lg:max-w-[62px]",
   },
   {
     label: "iPad Smart Covers",
-    src: "/accessories/iPad%20Smart%20Covers.avif",
+    src: "/accessories/ipad-smart-covers.avif",
     alt: "iPad smart covers",
     imageClassName:
       "max-h-[40px] max-w-[48px] sm:max-h-[44px] sm:max-w-[52px] lg:max-h-[48px] lg:max-w-[58px]",
@@ -701,7 +701,7 @@ export default function HomePage() {
           <a className="inline-flex items-center" href="#" aria-label="Electro Mall home">
             <Image
               className="block h-auto w-[112px] sm:w-[112px] md:w-[132px] lg:w-[155px] xl:w-[170px]"
-              src="/logo-cropped.png"
+              src="/branding/electromall-wordmark.png"
               alt="Electro Mall"
               width={240}
               height={43}
@@ -789,7 +789,7 @@ export default function HomePage() {
         subtitle="Meet the latest iPhone lineup."
         primaryAction="Learn more"
         secondaryAction="Shop iPhone"
-        imageSrc="/iphone-17-pro-model-unselect-gallery-1-202509-removebg-preview.png"
+        imageSrc="/heroes/iphone-17-pro.png"
         imageAlt="iPhone 17 Pro models"
         imageWidth={666}
         imageHeight={500}
@@ -802,7 +802,7 @@ export default function HomePage() {
         subtitle="The ultimate pro computer."
         primaryAction="Learn more"
         secondaryAction="Shop MacBook Pro"
-        imageSrc="/macbook-hero-dark.png"
+        imageSrc="/heroes/macbook-hero-dark.png"
         imageAlt="MacBook Pro models"
         imageWidth={1365}
         imageHeight={768}
@@ -820,7 +820,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        <NewArrivalsSection products={newArrivalProducts} />
+        <ProductCarouselSection products={newArrivalProducts} />
 
         <section
           className="bg-white px-3 pb-[72px] pt-0 sm:px-3 sm:pb-[84px] md:px-[14px] lg:px-4 lg:pb-[96px]"
@@ -871,7 +871,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        <NewArrivalsSection
+        <ProductCarouselSection
           products={newArrivalProducts}
           title="Best Sellers"
           subtitle="Loved by our customers in Erbil."

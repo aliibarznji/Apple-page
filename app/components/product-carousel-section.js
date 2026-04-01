@@ -65,7 +65,7 @@ function NewArrivalCard({ product, onDragStart }) {
   );
 }
 
-export default function NewArrivalsSection({
+export default function ProductCarouselSection({
   products,
   title = "New Arrivals",
   subtitle = "The latest Apple favorites, just landed.",
