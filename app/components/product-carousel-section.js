@@ -26,6 +26,9 @@ function ArrowIcon({ className = "h-[13px] w-[13px]" }) {
 }
 
 function NewArrivalCard({ product, onDragStart }) {
+  const isRemoteImage =
+    typeof product.src === "string" && product.src.startsWith("http");
+
   return (
     <article
       className="w-[78vw] min-w-[78vw] max-w-[290px] snap-start sm:w-auto sm:min-w-[216px] sm:max-w-none lg:min-w-[232px]"
@@ -49,6 +52,7 @@ function NewArrivalCard({ product, onDragStart }) {
             height={product.height}
             sizes="(min-width: 1024px) 232px, (min-width: 640px) 216px, 78vw"
             draggable={false}
+            unoptimized={isRemoteImage}
           />
         </div>
 
