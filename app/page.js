@@ -1,4 +1,5 @@
 import Image from "next/image";
+import MobileAppleLanding from "./components/mobile-apple-landing";
 import ProductCarouselSection from "./components/product-carousel-section";
 
 const secondaryLinks = [
@@ -207,6 +208,25 @@ const bestSellingAccessories = [
     alt: "iPad smart covers",
     imageClassName:
       "max-h-[40px] max-w-[48px] sm:max-h-[44px] sm:max-w-[52px] lg:max-h-[48px] lg:max-w-[58px]",
+  },
+];
+
+const mobileShowcaseSlides = [
+  {
+    name: "iPhone 17 Pro",
+    src: "/heroes/iphone-17-pro.png",
+    alt: "iPhone 17 Pro",
+    width: 666,
+    height: 500,
+    imageClassName: "max-w-[210px]",
+  },
+  {
+    name: "MacBook Pro",
+    src: "/heroes/macbook-hero-dark.png",
+    alt: "MacBook Pro",
+    width: 1365,
+    height: 768,
+    imageClassName: "max-w-[244px] translate-y-1",
   },
 ];
 
@@ -490,24 +510,24 @@ function HeroSection({
   const mediaClasses = dark ? "bg-black" : "bg-white";
 
   return (
-    <section className={`overflow-hidden pt-8 md:pt-10 lg:pt-11 ${sectionClasses}`} aria-label={ariaLabel}>
+    <section className={`overflow-hidden pt-6 sm:pt-7 md:pt-10 lg:pt-11 ${sectionClasses}`} aria-label={ariaLabel}>
       <div className="flex w-full flex-col items-center">
-        <div className={`flex min-h-[130px] flex-col items-center px-4 text-center md:min-h-[146px] lg:min-h-[158px] ${dark ? "pt-1.5" : ""}`}>
-          <p className="m-0 text-[0.72rem] font-semibold tracking-[0.16em] text-[#ff3036] md:text-[0.76rem]">
+        <div className={`flex min-h-[116px] w-full max-w-[20rem] flex-col items-center px-5 text-center sm:min-h-[130px] sm:max-w-[24rem] md:min-h-[146px] md:max-w-none lg:min-h-[158px] ${dark ? "pt-1.5" : ""}`}>
+          <p className="m-0 text-[0.68rem] font-semibold tracking-[0.16em] text-[#ff3036] md:text-[0.76rem]">
             NEW
           </p>
           <h1
-            className={`m-0 leading-[0.95] font-semibold tracking-[-0.04em] ${wideTitle ? "text-[clamp(2.5rem,4.6vw,3.8rem)]" : "text-[clamp(2.6rem,5vw,4.1rem)]"} ${titleClasses}`}
+            className={`m-0 leading-[0.95] font-semibold tracking-[-0.045em] ${wideTitle ? "text-[clamp(1.95rem,10.5vw,3.8rem)]" : "text-[clamp(2.1rem,11vw,4.1rem)]"} ${titleClasses}`}
           >
             {title}
           </h1>
-          <p className={`mt-2 text-[clamp(0.92rem,1.6vw,1.35rem)] font-normal leading-[1.3] ${subtitleClasses}`}>
+          <p className={`mt-2 max-w-[17rem] text-[clamp(0.86rem,3.7vw,1.35rem)] font-normal leading-[1.3] sm:max-w-[20rem] md:max-w-none ${subtitleClasses}`}>
             {subtitle}
           </p>
 
-          <div className="mt-4 flex w-full flex-col items-center gap-2.5 sm:flex-row sm:justify-center sm:gap-3">
+          <div className="mt-4 flex w-full max-w-[17rem] flex-col items-center gap-2.5 sm:max-w-none sm:flex-row sm:justify-center sm:gap-3">
             <a
-              className="inline-flex min-h-8 items-center justify-center gap-2 rounded-full bg-[#e62b28] px-4 text-[0.82rem] font-semibold text-white shadow-[0_6px_14px_rgba(230,43,40,0.1)] transition duration-200 hover:-translate-y-px hover:bg-[#d82825]"
+              className="inline-flex min-h-9 w-full items-center justify-center gap-2 rounded-full bg-[#e62b28] px-4 text-[0.82rem] font-semibold text-white shadow-[0_6px_14px_rgba(230,43,40,0.1)] transition duration-200 hover:-translate-y-px hover:bg-[#d82825] sm:min-h-8 sm:w-auto"
               href="#"
             >
               <span>{primaryAction}</span>
@@ -515,7 +535,7 @@ function HeroSection({
             </a>
 
             <a
-              className="inline-flex items-center gap-2 text-[0.82rem] font-medium text-[#ff3036] transition duration-200 hover:text-[#e62b28]"
+              className="inline-flex min-h-9 items-center justify-center gap-2 text-[0.82rem] font-medium text-[#ff3036] transition duration-200 hover:text-[#e62b28] sm:min-h-0"
               href="#"
             >
               <span>{secondaryAction}</span>
@@ -524,7 +544,7 @@ function HeroSection({
           </div>
         </div>
 
-        <div className={`mt-2 flex w-full justify-center ${mediaClasses}`}>
+        <div className={`mt-3 flex w-full justify-center sm:mt-2 ${mediaClasses}`}>
           <Image
             className={`block h-auto w-full object-contain ${imageMaxWidth}`}
             src={imageSrc}
@@ -541,17 +561,17 @@ function HeroSection({
 
 function MarketingCategory({ category }) {
   return (
-    <a className="group flex flex-col items-center gap-2.5 text-center no-underline" href="#">
-      <span className="flex h-[72px] w-[72px] items-center justify-center rounded-[16px] bg-[#f5f5f7] transition duration-200 group-hover:-translate-y-0.5 sm:h-[76px] sm:w-[76px] lg:h-[84px] lg:w-[84px] lg:rounded-[18px]">
+    <a className="group flex flex-col items-center gap-2 text-center no-underline sm:gap-2.5" href="#">
+      <span className="flex h-[64px] w-[64px] items-center justify-center rounded-[15px] bg-[#f5f5f7] transition duration-200 group-hover:-translate-y-0.5 sm:h-[76px] sm:w-[76px] sm:rounded-[16px] lg:h-[84px] lg:w-[84px] lg:rounded-[18px]">
         <Image
-          className="h-auto w-auto max-h-[56px] max-w-[66px] object-contain"
+          className="h-auto w-auto max-h-[48px] max-w-[54px] object-contain sm:max-h-[56px] sm:max-w-[66px]"
           src={category.src}
           alt={category.alt}
           width={category.width}
           height={category.height}
         />
       </span>
-      <span className="text-[0.74rem] font-medium leading-[1.2] text-[#6e6e73] sm:text-[0.78rem] lg:text-[0.84rem]">
+      <span className="text-[0.68rem] font-medium leading-[1.2] text-[#6e6e73] sm:text-[0.78rem] lg:text-[0.84rem]">
         {category.label}
       </span>
     </a>
@@ -569,18 +589,18 @@ function FeaturedPromoTile({ tile }) {
 
   return (
     <article
-      className={`group relative flex min-h-[380px] flex-col overflow-hidden rounded-[28px] shadow-[0_16px_36px_rgba(15,23,42,0.05)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_24px_46px_rgba(15,23,42,0.08)] sm:min-h-[430px] ${panelClasses}`}
+      className={`group relative flex min-h-[320px] flex-col overflow-hidden rounded-[24px] shadow-[0_16px_36px_rgba(15,23,42,0.05)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_24px_46px_rgba(15,23,42,0.08)] sm:min-h-[430px] sm:rounded-[28px] ${panelClasses}`}
     >
       <div
         className={`pointer-events-none absolute inset-x-0 top-0 h-[180px] opacity-90 ${glowClasses}`}
         aria-hidden="true"
       />
 
-      <div className="relative z-10 flex flex-col items-center px-6 pt-9 text-center sm:px-8 sm:pt-11">
-        <h3 className="text-[clamp(2rem,3.4vw,2.65rem)] font-semibold leading-[0.96] tracking-[-0.045em]">
+      <div className="relative z-10 flex flex-col items-center px-5 pt-7 text-center sm:px-8 sm:pt-11">
+        <h3 className="text-[clamp(1.7rem,8vw,2.65rem)] font-semibold leading-[0.96] tracking-[-0.045em]">
           {tile.title}
         </h3>
-        <p className={`mt-2 text-[0.92rem] leading-[1.45] ${subtitleClasses}`}>
+        <p className={`mt-2 max-w-[18rem] text-[0.88rem] leading-[1.45] sm:max-w-none sm:text-[0.92rem] ${subtitleClasses}`}>
           {tile.subtitle}
         </p>
 
@@ -603,7 +623,7 @@ function FeaturedPromoTile({ tile }) {
         </div>
       </div>
 
-      <div className="relative z-10 flex flex-1 items-end justify-center overflow-hidden px-6 pb-7 pt-6 sm:px-8 sm:pb-9 sm:pt-7">
+      <div className="relative z-10 flex flex-1 items-end justify-center overflow-hidden px-5 pb-6 pt-5 sm:px-8 sm:pb-9 sm:pt-7">
         <div
           className={`flex w-full items-end justify-center transition duration-500 group-hover:-translate-y-1 ${tile.mediaClassName}`}
         >
@@ -625,10 +645,10 @@ function AccessoryShowcaseCard({ accessory }) {
   return (
     <article>
       <a
-        className="group flex flex-col items-center gap-3.5 text-center no-underline sm:gap-4"
+        className="group flex flex-col items-center gap-3 text-center no-underline sm:gap-4"
         href="#"
       >
-        <span className="flex h-[72px] w-[72px] items-center justify-center rounded-[16px] bg-[#f5f5f7] transition duration-200 group-hover:-translate-y-0.5 sm:h-[76px] sm:w-[76px] lg:h-[84px] lg:w-[84px] lg:rounded-[18px]">
+        <span className="flex h-[64px] w-[64px] items-center justify-center rounded-[15px] bg-[#f5f5f7] transition duration-200 group-hover:-translate-y-0.5 sm:h-[76px] sm:w-[76px] sm:rounded-[16px] lg:h-[84px] lg:w-[84px] lg:rounded-[18px]">
           <Image
             className={`h-auto w-auto object-contain ${accessory.imageClassName}`}
             src={accessory.src}
@@ -640,7 +660,7 @@ function AccessoryShowcaseCard({ accessory }) {
           />
         </span>
 
-        <h3 className="max-w-[11ch] text-[0.74rem] font-medium leading-[1.2] text-[#6e6e73] sm:text-[0.78rem] lg:text-[0.84rem]">
+        <h3 className="max-w-[11ch] text-[0.7rem] font-medium leading-[1.2] text-[#6e6e73] sm:text-[0.78rem] lg:text-[0.84rem]">
           {accessory.label}
         </h3>
       </a>
@@ -653,14 +673,14 @@ function WhyElectroMallFeature({ feature }) {
 
   return (
     <article className="group flex flex-col items-center text-center">
-      <span className="flex h-[72px] w-[72px] items-center justify-center rounded-[20px] bg-[#fdf0f1] text-[#ff3036] transition duration-300 group-hover:-translate-y-1 group-hover:bg-[#fde6e8] sm:h-[76px] sm:w-[76px]">
-        <Icon className="h-[26px] w-[26px]" />
+      <span className="flex h-[60px] w-[60px] items-center justify-center rounded-[18px] bg-[#fdf0f1] text-[#ff3036] transition duration-300 group-hover:-translate-y-1 group-hover:bg-[#fde6e8] sm:h-[76px] sm:w-[76px] sm:rounded-[20px]">
+        <Icon className="h-[22px] w-[22px] sm:h-[26px] sm:w-[26px]" />
       </span>
 
-      <h3 className="mt-5 text-[1.05rem] font-semibold leading-[1.2] tracking-[-0.03em] text-[#111216] sm:text-[1.12rem]">
+      <h3 className="mt-4 text-[0.98rem] font-semibold leading-[1.2] tracking-[-0.03em] text-[#111216] sm:mt-5 sm:text-[1.12rem]">
         {feature.title}
       </h3>
-      <p className="mt-2 max-w-[18ch] text-[0.94rem] leading-[1.6] text-[#70798b] sm:max-w-[20ch] sm:text-[0.98rem]">
+      <p className="mt-2 max-w-[16ch] text-[0.84rem] leading-[1.55] text-[#70798b] sm:max-w-[20ch] sm:text-[0.98rem]">
         {feature.description}
       </p>
     </article>
@@ -670,20 +690,20 @@ function WhyElectroMallFeature({ feature }) {
 function WhyElectroMallSection() {
   return (
     <section
-      className="bg-white px-3 py-[58px] sm:px-3 sm:py-[68px] md:px-[14px] lg:px-4 lg:py-[82px]"
+      className="bg-white px-3 py-12 sm:px-3 sm:py-[68px] md:px-[14px] lg:px-4 lg:py-[82px]"
       aria-label="Why ElectroMall"
     >
       <div className="mx-auto max-w-[1180px]">
         <div className="mx-auto max-w-[860px] text-center">
-          <p className="text-[0.82rem] font-semibold tracking-[0.22em] text-[#ff3036] sm:text-[0.9rem]">
+          <p className="text-[0.74rem] font-semibold tracking-[0.2em] text-[#ff3036] sm:text-[0.9rem]">
             WHY ELECTROMALL
           </p>
-          <h2 className="mt-4 text-[clamp(2.25rem,4.8vw,4rem)] font-semibold leading-[0.96] tracking-[-0.05em] text-[#111216]">
+          <h2 className="mx-auto mt-3 max-w-[11ch] text-[clamp(1.7rem,8vw,4rem)] font-semibold leading-[0.96] tracking-[-0.05em] text-[#111216] sm:mt-4 sm:max-w-none">
             The Apple experience you deserve.
           </h2>
         </div>
 
-        <div className="mx-auto mt-12 grid max-w-[1140px] gap-x-8 gap-y-12 sm:mt-14 sm:grid-cols-2 sm:gap-y-14 lg:mt-[72px] lg:grid-cols-4 lg:gap-x-10">
+        <div className="mx-auto mt-10 grid max-w-[1140px] grid-cols-2 gap-x-5 gap-y-10 sm:mt-14 sm:grid-cols-2 sm:gap-x-8 sm:gap-y-14 lg:mt-[72px] lg:grid-cols-4 lg:gap-x-10">
           {whyElectroMallFeatures.map((feature) => (
             <WhyElectroMallFeature key={feature.title} feature={feature} />
           ))}
@@ -695,92 +715,175 @@ function WhyElectroMallSection() {
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen bg-white text-[#283241]">
-      <header className="sticky top-0 z-50 border-b border-black/5 bg-white/95 backdrop-blur-md supports-[backdrop-filter]:bg-white/80">
-        <div className="grid min-h-[48px] items-center gap-2 px-3 py-1.5 sm:grid-cols-[112px_minmax(0,1fr)_auto] sm:px-[10px] md:grid-cols-[132px_minmax(200px,1fr)_auto] md:gap-3 md:px-[14px] lg:grid-cols-[170px_minmax(280px,1fr)_auto] lg:gap-[14px] lg:px-4 xl:grid-cols-[200px_minmax(300px,1fr)_auto] xl:gap-5 xl:px-6">
-          <a className="inline-flex items-center" href="#" aria-label="Electro Mall home">
-            <Image
-              className="block h-auto w-[112px] sm:w-[112px] md:w-[132px] lg:w-[155px] xl:w-[170px]"
-              src="/branding/electromall-wordmark.png"
-              alt="Electro Mall"
-              width={240}
-              height={43}
-              priority
-            />
-          </a>
+    <main className="min-h-screen overflow-x-hidden bg-white pb-[86px] text-[#283241] sm:pb-0">
+      <div className="sm:hidden">
+        <MobileAppleLanding slides={mobileShowcaseSlides} />
+      </div>
 
-          <form
-            className="flex min-w-0 items-center rounded-full border border-[#eee1e5] bg-[linear-gradient(90deg,#fcf1f3,#fff8f9)] px-3 py-0.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.8)] lg:px-3.5 xl:px-4"
-            action="#"
-            role="search"
-          >
-            <label className="sr-only" htmlFor="site-search">
+      <div className="hidden sm:block">
+      <header className="sticky top-0 z-50 border-b border-black/5 bg-white/95 backdrop-blur-md supports-[backdrop-filter]:bg-white/80">
+        <div className="sm:hidden">
+          <div className="flex items-center justify-between gap-3 px-3 pb-2 pt-3">
+            <a className="inline-flex min-w-0 items-center" href="#" aria-label="Electro Mall home">
+              <Image
+                className="block h-auto w-[182px]"
+                src="/branding/electromall-wordmark.png"
+                alt="Electro Mall"
+                width={240}
+                height={43}
+                priority
+              />
+            </a>
+
+            <nav className="flex shrink-0 items-center gap-2.5 text-[#ff3036]" aria-label="Quick actions">
+              <a className="inline-flex h-7 w-7 items-center justify-center text-[#546273]" href="#" aria-label="Profile">
+                <UserIcon className="h-[15px] w-[15px]" />
+              </a>
+              <a className="inline-flex h-7 w-7 items-center justify-center" href="#" aria-label="Wishlist">
+                <HeartIcon className="h-[15px] w-[15px]" />
+              </a>
+              <a className="inline-flex h-7 w-7 items-center justify-center" href="#" aria-label="Notifications">
+                <BellIcon className="h-[15px] w-[15px]" />
+              </a>
+              <a className="inline-flex h-7 w-7 items-center justify-center" href="#" aria-label="Cart">
+                <CartIcon className="h-[15px] w-[15px]" />
+              </a>
+              <button
+                className="inline-flex h-7 items-center gap-1 rounded-full border border-[#f1d8dd] bg-white px-1.5 text-[#ff3036]"
+                type="button"
+                aria-label="Select language and region"
+              >
+                <span className="inline-flex h-4.5 w-4.5 overflow-hidden rounded-full shadow-[inset_0_0_0_1px_rgba(255,48,54,0.1)]" aria-hidden="true">
+                  <FlagIcon />
+                </span>
+                <ChevronIcon className="h-3 w-3 text-[#1f2937]" />
+              </button>
+            </nav>
+          </div>
+
+          <form className="px-3 pb-2" action="#" role="search">
+            <label className="sr-only" htmlFor="site-search-mobile">
               Search products
             </label>
-            <input
-              id="site-search"
-              name="q"
-              type="search"
-              placeholder="I&apos;m Looking for"
-              className="h-[30px] w-full min-w-0 border-0 bg-transparent px-2 text-[0.82rem] font-medium tracking-[0.01em] text-[#283241] outline-none placeholder:text-[#97a1b0] [&::-webkit-search-cancel-button]:hidden"
-            />
-            <button
-              className="inline-flex h-[32px] min-w-10 items-center justify-center gap-1.5 rounded-full bg-[#ff3036] px-0 text-[0.82rem] font-semibold text-white shadow-[0_6px_14px_rgba(255,48,54,0.1)] transition duration-200 hover:-translate-y-px hover:bg-[#f3272d] sm:min-w-[88px] sm:px-3.5"
-              type="submit"
-            >
-              <SearchIcon className="h-[15px] w-[15px] shrink-0" />
-              <span className="hidden sm:inline">Search</span>
-            </button>
+            <div className="flex min-w-0 items-center rounded-full border border-[#eee1e5] bg-[linear-gradient(90deg,#fcf1f3,#fff8f9)] px-2.5 py-0.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.8)]">
+              <input
+                id="site-search-mobile"
+                name="q"
+                type="search"
+                placeholder="I&apos;m Looking for"
+                className="h-[36px] w-full min-w-0 border-0 bg-transparent px-2 text-[0.94rem] font-medium tracking-[0.01em] text-[#283241] outline-none placeholder:text-[#97a1b0] [&::-webkit-search-cancel-button]:hidden"
+              />
+              <button
+                className="inline-flex h-[32px] min-w-[44px] items-center justify-center gap-1.5 rounded-full bg-[#ff3036] px-0 text-[0.82rem] font-semibold text-white shadow-[0_6px_14px_rgba(255,48,54,0.1)] transition duration-200 hover:-translate-y-px hover:bg-[#f3272d]"
+                type="submit"
+                aria-label="Search"
+              >
+                <SearchIcon className="h-[15px] w-[15px] shrink-0" />
+              </button>
+            </div>
           </form>
 
-          <nav className="flex items-center gap-[10px] whitespace-nowrap sm:gap-3 lg:gap-4" aria-label="Quick actions">
-            <a className="inline-flex items-center gap-1.5 text-[0.78rem] font-medium text-[#283241]" href="#">
-              <UserIcon className="h-[15px] w-[15px] text-[#546273]" />
-              <span className="hidden md:inline">Ali Baeiz</span>
-            </a>
-
-            <a className="hidden text-[0.78rem] font-medium text-[#ff3036] lg:inline" href="#">
-              Need help ?
-            </a>
-
-            <a className="inline-flex h-4 w-4 items-center justify-center text-[#ff3036]" href="#" aria-label="Wishlist">
-              <HeartIcon className="h-[15px] w-[15px]" />
-            </a>
-
-            <a className="inline-flex h-4 w-4 items-center justify-center text-[#ff3036]" href="#" aria-label="Notifications">
-              <BellIcon className="h-[15px] w-[15px]" />
-            </a>
-
-            <a className="inline-flex h-4 w-4 items-center justify-center text-[#ff3036]" href="#" aria-label="Cart">
-              <CartIcon className="h-[15px] w-[15px]" />
-            </a>
-
-            <button
-              className="inline-flex items-center gap-1.5 bg-transparent p-0 text-[#ff3036]"
-              type="button"
-              aria-label="Select language and region"
-            >
-              <span className="inline-flex h-5 w-5 overflow-hidden rounded-full shadow-[inset_0_0_0_1px_rgba(255,48,54,0.1)]" aria-hidden="true">
-                <FlagIcon />
-              </span>
-              <ChevronIcon className="h-3 w-3 text-[#1f2937]" />
-            </button>
+          <nav className="mx-3 mb-2 rounded-full border border-[#eceef2] bg-[#f5f5f7] px-1.5 py-1.5 shadow-[0_6px_14px_rgba(15,23,42,0.03)]" aria-label="Shop links">
+            <div className="horizontal-scroll flex items-center gap-1 overflow-x-auto whitespace-nowrap">
+              {secondaryLinks.map((link) => (
+                <a
+                  key={link.label}
+                  className="inline-flex h-8 shrink-0 items-center rounded-full px-3 text-[0.84rem] font-medium text-[#243655] transition duration-200 hover:bg-white hover:text-[#ff3036]"
+                  href="#"
+                >
+                  {link.label}
+                </a>
+              ))}
+            </div>
           </nav>
         </div>
 
-        <nav className="mx-3 mt-1.5 rounded-[12px] border border-[#eceef2] bg-[#f5f5f7] px-3 py-1.5 shadow-[0_6px_14px_rgba(15,23,42,0.03)] sm:mx-[10px] md:mx-[14px] md:px-[14px] md:py-0 lg:mx-4 lg:min-h-[36px] lg:px-4 xl:mx-6 xl:min-h-10 xl:px-5" aria-label="Shop links">
-          <div className="flex items-center justify-start overflow-x-auto whitespace-nowrap pb-0.5 md:justify-center md:pb-0">
-            {secondaryLinks.map((link, index) => (
-              <a
-                key={link.label}
-                className={`inline-flex min-h-[28px] items-center px-2.5 text-[0.72rem] font-medium text-[#243655] transition duration-200 hover:text-[#ff3036] sm:px-2.5 md:px-3 md:text-[0.76rem] lg:px-3.5 lg:text-[0.8rem] ${index !== 0 ? "border-l border-[#e4e1e4]" : ""}`}
-                href="#"
+        <div className="hidden sm:block">
+          <div className="grid min-h-[48px] items-center gap-2 px-3 py-1.5 sm:grid-cols-[112px_minmax(0,1fr)_auto] sm:px-[10px] md:grid-cols-[132px_minmax(200px,1fr)_auto] md:gap-3 md:px-[14px] lg:grid-cols-[170px_minmax(280px,1fr)_auto] lg:gap-[14px] lg:px-4 xl:grid-cols-[200px_minmax(300px,1fr)_auto] xl:gap-5 xl:px-6">
+            <a className="inline-flex items-center" href="#" aria-label="Electro Mall home">
+              <Image
+                className="block h-auto w-[112px] sm:w-[112px] md:w-[132px] lg:w-[155px] xl:w-[170px]"
+                src="/branding/electromall-wordmark.png"
+                alt="Electro Mall"
+                width={240}
+                height={43}
+                priority
+              />
+            </a>
+
+            <form
+              className="flex min-w-0 items-center rounded-full border border-[#eee1e5] bg-[linear-gradient(90deg,#fcf1f3,#fff8f9)] px-3 py-0.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.8)] lg:px-3.5 xl:px-4"
+              action="#"
+              role="search"
+            >
+              <label className="sr-only" htmlFor="site-search-desktop">
+                Search products
+              </label>
+              <input
+                id="site-search-desktop"
+                name="q"
+                type="search"
+                placeholder="I&apos;m Looking for"
+                className="h-[30px] w-full min-w-0 border-0 bg-transparent px-2 text-[0.82rem] font-medium tracking-[0.01em] text-[#283241] outline-none placeholder:text-[#97a1b0] [&::-webkit-search-cancel-button]:hidden"
+              />
+              <button
+                className="inline-flex h-[32px] min-w-10 items-center justify-center gap-1.5 rounded-full bg-[#ff3036] px-0 text-[0.82rem] font-semibold text-white shadow-[0_6px_14px_rgba(255,48,54,0.1)] transition duration-200 hover:-translate-y-px hover:bg-[#f3272d] sm:min-w-[88px] sm:px-3.5"
+                type="submit"
               >
-                {link.label}
+                <SearchIcon className="h-[15px] w-[15px] shrink-0" />
+                <span className="hidden sm:inline">Search</span>
+              </button>
+            </form>
+
+            <nav className="flex items-center gap-[10px] whitespace-nowrap sm:gap-3 lg:gap-4" aria-label="Quick actions">
+              <a className="inline-flex items-center gap-1.5 text-[0.78rem] font-medium text-[#283241]" href="#">
+                <UserIcon className="h-[15px] w-[15px] text-[#546273]" />
+                <span className="hidden md:inline">Ali Baeiz</span>
               </a>
-            ))}
+
+              <a className="hidden text-[0.78rem] font-medium text-[#ff3036] lg:inline" href="#">
+                Need help ?
+              </a>
+
+              <a className="inline-flex h-4 w-4 items-center justify-center text-[#ff3036]" href="#" aria-label="Wishlist">
+                <HeartIcon className="h-[15px] w-[15px]" />
+              </a>
+
+              <a className="inline-flex h-4 w-4 items-center justify-center text-[#ff3036]" href="#" aria-label="Notifications">
+                <BellIcon className="h-[15px] w-[15px]" />
+              </a>
+
+              <a className="inline-flex h-4 w-4 items-center justify-center text-[#ff3036]" href="#" aria-label="Cart">
+                <CartIcon className="h-[15px] w-[15px]" />
+              </a>
+
+              <button
+                className="inline-flex items-center gap-1.5 bg-transparent p-0 text-[#ff3036]"
+                type="button"
+                aria-label="Select language and region"
+              >
+                <span className="inline-flex h-5 w-5 overflow-hidden rounded-full shadow-[inset_0_0_0_1px_rgba(255,48,54,0.1)]" aria-hidden="true">
+                  <FlagIcon />
+                </span>
+                <ChevronIcon className="h-3 w-3 text-[#1f2937]" />
+              </button>
+            </nav>
           </div>
-        </nav>
+
+          <nav className="mx-3 mt-1.5 rounded-[12px] border border-[#eceef2] bg-[#f5f5f7] px-3 py-1.5 shadow-[0_6px_14px_rgba(15,23,42,0.03)] sm:mx-[10px] md:mx-[14px] md:px-[14px] md:py-0 lg:mx-4 lg:min-h-[36px] lg:px-4 xl:mx-6 xl:min-h-10 xl:px-5" aria-label="Shop links">
+            <div className="flex items-center justify-start overflow-x-auto whitespace-nowrap pb-0.5 md:justify-center md:pb-0">
+              {secondaryLinks.map((link, index) => (
+                <a
+                  key={link.label}
+                  className={`inline-flex min-h-[28px] items-center px-2.5 text-[0.72rem] font-medium text-[#243655] transition duration-200 hover:text-[#ff3036] sm:px-2.5 md:px-3 md:text-[0.76rem] lg:px-3.5 lg:text-[0.8rem] ${index !== 0 ? "border-l border-[#e4e1e4]" : ""}`}
+                  href="#"
+                >
+                  {link.label}
+                </a>
+              ))}
+            </div>
+          </nav>
+        </div>
       </header>
 
       <HeroSection
@@ -810,10 +913,11 @@ export default function HomePage() {
         dark
         wideTitle
       />
+      </div>
 
       <div className="content-section-stack bg-white">
-        <section className="bg-white px-3 pb-[42px] pt-[28px] sm:px-3 sm:pb-12 sm:pt-8 md:px-[14px] lg:px-4 lg:pb-[58px] lg:pt-[38px]" aria-label="Shop categories">
-          <div className="mx-auto grid w-full max-w-[1060px] grid-cols-2 gap-x-[10px] gap-y-3 sm:grid-cols-3 sm:gap-x-4 sm:gap-y-[18px] lg:grid-cols-6 lg:gap-6">
+        <section className="bg-white px-3 pb-10 pt-6 sm:px-3 sm:pb-12 sm:pt-8 md:px-[14px] lg:px-4 lg:pb-[58px] lg:pt-[38px]" aria-label="Shop categories">
+          <div className="mx-auto grid w-full max-w-[1060px] grid-cols-3 gap-x-3 gap-y-4 sm:grid-cols-3 sm:gap-x-4 sm:gap-y-[18px] lg:grid-cols-6 lg:gap-6">
             {marketingCategories.map((category) => (
               <MarketingCategory category={category} key={category.label} />
             ))}
@@ -827,20 +931,22 @@ export default function HomePage() {
           aria-label="Featured Apple widgets"
         >
           <div className="mx-auto max-w-[1060px]">
-            <div className="pb-6 sm:pb-7">
+            <div className="pb-5 sm:pb-7">
               <div>
                 <p className="text-[0.72rem] font-semibold tracking-[0.16em] text-[#ff3036]">
                   EXPLORE
                 </p>
-                <h2 className="mt-2 text-[clamp(1.75rem,3vw,2.7rem)] font-semibold leading-[0.96] tracking-[-0.045em] text-[#1d1d1f]">
+                <h2 className="mt-2 text-[clamp(1.55rem,7vw,2.7rem)] font-semibold leading-[0.96] tracking-[-0.045em] text-[#1d1d1f]">
                   More from Apple.
                 </h2>
               </div>
             </div>
 
-            <div className="grid gap-3.5 md:grid-cols-2 md:gap-4 lg:gap-5">
+            <div className="horizontal-scroll -mx-3 flex snap-x snap-mandatory gap-3 overflow-x-auto px-3 pb-1 md:mx-0 md:grid md:grid-cols-2 md:gap-4 md:overflow-visible md:px-0 md:pb-0 lg:gap-5">
               {featuredPromoTiles.map((tile) => (
-                <FeaturedPromoTile key={tile.title} tile={tile} />
+                <div className="min-w-[84vw] snap-start md:min-w-0" key={tile.title}>
+                  <FeaturedPromoTile tile={tile} />
+                </div>
               ))}
             </div>
           </div>
@@ -855,12 +961,12 @@ export default function HomePage() {
               <p className="text-[0.72rem] font-semibold tracking-[0.16em] text-[#ff3036]">
                 ACCESSORIES
               </p>
-              <h2 className="mt-4 text-[clamp(1.85rem,3.2vw,2.8rem)] font-semibold leading-[0.98] tracking-[-0.045em] text-[#243655] sm:mt-5">
+              <h2 className="mt-4 text-[clamp(1.6rem,7vw,2.8rem)] font-semibold leading-[0.98] tracking-[-0.045em] text-[#243655] sm:mt-5">
                 Best Selling <span className="text-[#ff3036]">Accessories</span>
               </h2>
             </div>
 
-            <div className="mx-auto mt-6 grid w-full max-w-[820px] grid-cols-2 gap-x-[18px] gap-y-6 sm:mt-8 sm:grid-cols-3 sm:gap-x-10 sm:gap-y-8 lg:mt-10 lg:max-w-[900px] lg:gap-x-16 lg:gap-y-10">
+            <div className="mx-auto mt-5 grid w-full max-w-[820px] grid-cols-2 gap-x-4 gap-y-6 sm:mt-8 sm:grid-cols-3 sm:gap-x-10 sm:gap-y-8 lg:mt-10 lg:max-w-[900px] lg:gap-x-16 lg:gap-y-10">
               {bestSellingAccessories.map((accessory) => (
                 <AccessoryShowcaseCard
                   key={accessory.label}

@@ -16,7 +16,7 @@ body {
 .content-section-stack {
   display: flex;
   flex-direction: column;
-  gap: 2.5rem;
+  gap: 2rem;
 }
 
 @media (min-width: 640px) {
@@ -36,7 +36,18 @@ body {
   -ms-overflow-style: none;
   cursor: grab;
   scroll-behavior: smooth;
-  touch-action: pan-y;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
+  touch-action: auto;
+}
+
+.horizontal-scroll {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.horizontal-scroll::-webkit-scrollbar {
+  display: none;
 }
 
 .new-arrivals-scroll::-webkit-scrollbar {

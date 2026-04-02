@@ -28,7 +28,7 @@ function ArrowIcon({ className = "h-[13px] w-[13px]" }) {
 function NewArrivalCard({ product, onDragStart }) {
   return (
     <article
-      className="min-w-[200px] snap-start sm:min-w-[216px] lg:min-w-[232px]"
+      className="w-[78vw] min-w-[78vw] max-w-[290px] snap-start sm:w-auto sm:min-w-[216px] sm:max-w-none lg:min-w-[232px]"
       draggable={false}
       onDragStart={onDragStart}
     >
@@ -39,7 +39,7 @@ function NewArrivalCard({ product, onDragStart }) {
         onDragStart={onDragStart}
       >
         <div
-          className={`pointer-events-none flex min-h-[185px] items-center justify-center overflow-hidden rounded-[20px] border border-[#eff0f2] px-3.5 py-4 transition duration-200 group-hover:-translate-y-0.5 group-hover:shadow-[0_10px_20px_rgba(15,23,42,0.05)] sm:min-h-[200px] ${product.panelClassName}`}
+          className={`pointer-events-none flex min-h-[192px] items-center justify-center overflow-hidden rounded-[18px] border border-[#eff0f2] px-3 py-3.5 transition duration-200 group-hover:-translate-y-0.5 group-hover:shadow-[0_10px_20px_rgba(15,23,42,0.05)] sm:min-h-[200px] sm:rounded-[20px] sm:px-3.5 sm:py-4 ${product.panelClassName}`}
         >
           <Image
             className={`pointer-events-none h-auto w-auto object-contain ${product.imageClassName}`}
@@ -47,16 +47,16 @@ function NewArrivalCard({ product, onDragStart }) {
             alt={product.alt}
             width={product.width}
             height={product.height}
-            sizes="(min-width: 1024px) 232px, (min-width: 640px) 216px, 200px"
+            sizes="(min-width: 1024px) 232px, (min-width: 640px) 216px, 78vw"
             draggable={false}
           />
         </div>
 
-        <div className="pointer-events-none pt-3">
-          <h3 className="max-w-[18ch] text-[0.84rem] font-medium leading-[1.35] text-[#1d1d1f] sm:text-[0.88rem]">
+        <div className="pointer-events-none pt-2.5 sm:pt-3">
+          <h3 className="max-w-[16ch] text-[0.95rem] font-medium leading-[1.3] text-[#1d1d1f] sm:max-w-[18ch] sm:text-[0.88rem]">
             {product.name}
           </h3>
-          <p className="mt-2 text-[0.86rem] font-medium text-[#6e6e73]">
+          <p className="mt-1.5 text-[0.92rem] font-medium text-[#6e6e73] sm:mt-2 sm:text-[0.86rem]">
             {product.price}
           </p>
         </div>
@@ -271,22 +271,22 @@ export default function ProductCarouselSection({
 
   return (
     <section
-      className={`bg-white px-3 pb-[56px] pt-0 sm:px-3 sm:pb-[68px] md:px-[14px] lg:px-4 lg:pb-[80px] ${className}`}
+      className={`bg-white px-3 pb-12 pt-0 sm:px-3 sm:pb-[68px] md:px-[14px] lg:px-4 lg:pb-[80px] ${className}`}
       aria-label={ariaLabel}
     >
       <div className="mx-auto max-w-[1060px]">
-        <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+        <div className="flex flex-col gap-2.5 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <h2 className="text-[clamp(1.6rem,3vw,2.6rem)] font-semibold leading-[0.95] tracking-[-0.04em] text-[#1d1d1f]">
+            <h2 className="text-[clamp(1.45rem,6.8vw,2.6rem)] font-semibold leading-[0.95] tracking-[-0.04em] text-[#1d1d1f]">
               {title}
             </h2>
-            <p className="mt-1.5 text-[0.86rem] leading-[1.5] text-[#6e6e73] sm:text-[0.9rem]">
+            <p className="mt-1 text-[0.82rem] leading-[1.45] text-[#6e6e73] sm:mt-1.5 sm:text-[0.9rem]">
               {subtitle}
             </p>
           </div>
 
           <a
-            className="inline-flex items-center gap-1.5 text-[0.82rem] font-medium text-[#ff3036] transition duration-200 hover:text-[#e62b28]"
+            className="inline-flex items-center gap-1.5 self-start text-[0.8rem] font-medium text-[#ff3036] transition duration-200 hover:text-[#e62b28] sm:self-auto sm:text-[0.82rem]"
             href="#"
           >
             <span>View All</span>
@@ -294,10 +294,10 @@ export default function ProductCarouselSection({
           </a>
         </div>
 
-        <div className="mt-6">
+        <div className="mt-5 sm:mt-6">
           <div
             ref={scrollerRef}
-            className={`new-arrivals-scroll flex snap-x snap-proximity gap-3.5 overflow-x-auto pb-3 sm:gap-4 lg:gap-5 ${isDragging ? "select-none" : ""}`}
+            className={`new-arrivals-scroll -mx-3 flex snap-x snap-mandatory gap-3 overflow-x-auto px-3 pb-3 sm:mx-0 sm:gap-4 sm:px-0 lg:gap-5 ${isDragging ? "select-none" : ""}`}
             data-dragging={isDragging ? "true" : "false"}
             onClickCapture={handleClickCapture}
             onDragStart={handleNativeDragStart}
