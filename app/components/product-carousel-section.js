@@ -76,15 +76,40 @@ export default function ProductCarouselSection({
   const momentumFrameRef = useRef(null);
   const dragStateRef = useRef({
     pointerId: null,
+    pointerType: null,
     startX: 0,
+    startY: 0,
     startScrollLeft: 0,
     lastClientX: 0,
     lastTimestamp: 0,
     velocity: 0,
     hasDragged: false,
     preventClick: false,
+    axis: null,
+    isCaptured: false,
   });
   const [isDragging, setIsDragging] = useState(false);
+
+  function capturePointer(scroller, pointerId) {
+    if (!scroller?.setPointerCapture) {
+      return;
+    }
+
+    scroller.setPointerCapture(pointerId);
+    dragStateRef.current.isCaptured = true;
+  }
+
+  function releasePointer(scroller, pointerId) {
+    if (!scroller || !dragStateRef.current.isCaptured) {
+      return;
+    }
+
+    if (scroller.hasPointerCapture?.(pointerId)) {
+      scroller.releasePointerCapture(pointerId);
+    }
+
+    dragStateRef.current.isCaptured = false;
+  }
 
   function stopMomentum() {
     if (momentumFrameRef.current !== null) {
@@ -140,7 +165,7 @@ export default function ProductCarouselSection({
   }
 
   function handlePointerDown(event) {
-    if (event.pointerType === "touch" || event.button !== 0) {
+    if (event.pointerType === "mouse" && event.button !== 0) {
       return;
     }
 
@@ -149,24 +174,30 @@ export default function ProductCarouselSection({
       return;
     }
 
-    event.preventDefault();
     stopMomentum();
 
     dragStateRef.current.pointerId = event.pointerId;
+    dragStateRef.current.pointerType = event.pointerType;
     dragStateRef.current.startX = event.clientX;
+    dragStateRef.current.startY = event.clientY;
     dragStateRef.current.startScrollLeft = scroller.scrollLeft;
     dragStateRef.current.lastClientX = event.clientX;
     dragStateRef.current.lastTimestamp = event.timeStamp;
     dragStateRef.current.velocity = 0;
     dragStateRef.current.hasDragged = false;
     dragStateRef.current.preventClick = false;
+    dragStateRef.current.axis = null;
+    dragStateRef.current.isCaptured = false;
 
-    setIsDragging(true);
-    scroller.setPointerCapture?.(event.pointerId);
+    if (event.pointerType === "mouse") {
+      event.preventDefault();
+      capturePointer(scroller, event.pointerId);
+    }
   }
 
   function handlePointerMove(event) {
-    if (dragStateRef.current.pointerId !== event.pointerId) {
+    const dragState = dragStateRef.current;
+    if (dragState.pointerId !== event.pointerId) {
       return;
     }
 
@@ -175,21 +206,37 @@ export default function ProductCarouselSection({
       return;
     }
 
-    const deltaX = event.clientX - dragStateRef.current.startX;
+    const deltaX = event.clientX - dragState.startX;
+    const deltaY = event.clientY - dragState.startY;
 
-    if (!dragStateRef.current.hasDragged && Math.abs(deltaX) > 4) {
+    if (dragState.axis === null) {
+      if (Math.abs(deltaX) < 4 && Math.abs(deltaY) < 4) {
+        return;
+      }
+
+      if (Math.abs(deltaY) > Math.abs(deltaX)) {
+        finishDragging(event.pointerId, false);
+        return;
+      }
+
+      dragStateRef.current.axis = "x";
       dragStateRef.current.hasDragged = true;
       dragStateRef.current.preventClick = true;
+      setIsDragging(true);
+
+      if (!dragState.isCaptured) {
+        capturePointer(scroller, event.pointerId);
+      }
     }
 
-    if (!dragStateRef.current.hasDragged) {
+    if (dragStateRef.current.axis !== "x") {
       return;
     }
 
     if (event.cancelable) {
       event.preventDefault();
     }
-    scroller.scrollLeft = dragStateRef.current.startScrollLeft - deltaX;
+    scroller.scrollLeft = dragState.startScrollLeft - deltaX;
 
     const deltaTime = event.timeStamp - dragStateRef.current.lastTimestamp;
     if (deltaTime > 0) {
@@ -207,21 +254,18 @@ export default function ProductCarouselSection({
     const scroller = scrollerRef.current;
     const activePointerId = dragStateRef.current.pointerId;
     const shouldStartMomentum =
-      shouldContinueMomentum && dragStateRef.current.hasDragged;
+      shouldContinueMomentum &&
+      dragStateRef.current.hasDragged &&
+      dragStateRef.current.axis === "x";
 
     dragStateRef.current.pointerId = null;
+    dragStateRef.current.pointerType = null;
     dragStateRef.current.startX = 0;
+    dragStateRef.current.startY = 0;
     dragStateRef.current.startScrollLeft = 0;
     dragStateRef.current.hasDragged = false;
-
-    if (
-      scroller &&
-      activePointerId !== null &&
-      pointerId !== null &&
-      scroller.hasPointerCapture?.(activePointerId)
-    ) {
-      scroller.releasePointerCapture(activePointerId);
-    }
+    dragStateRef.current.axis = null;
+    releasePointer(scroller, activePointerId);
 
     setIsDragging(false);
 
@@ -262,6 +306,7 @@ export default function ProductCarouselSection({
       return;
     }
 
+    dragStateRef.current.isCaptured = false;
     finishDragging(event.pointerId);
   }
 
