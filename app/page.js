@@ -1,5 +1,4 @@
 import Image from "next/image";
-import MobileAppleLanding from "./components/mobile-apple-landing";
 import ProductCarouselSection from "./components/product-carousel-section";
 
 const secondaryLinks = [
@@ -211,25 +210,6 @@ const bestSellingAccessories = [
   },
 ];
 
-const mobileShowcaseSlides = [
-  {
-    name: "iPhone 17 Pro",
-    src: "/heroes/iphone-17-pro.png",
-    alt: "iPhone 17 Pro",
-    width: 666,
-    height: 500,
-    imageClassName: "max-w-[210px]",
-  },
-  {
-    name: "MacBook Pro",
-    src: "/heroes/macbook-hero-dark.png",
-    alt: "MacBook Pro",
-    width: 1365,
-    height: 768,
-    imageClassName: "max-w-[244px] translate-y-1",
-  },
-];
-
 const whyElectroMallFeatures = [
   {
     title: "Genuine Warranty",
@@ -347,6 +327,99 @@ function CartIcon({ className = "h-[18px] w-[18px]" }) {
         stroke="currentColor"
         strokeLinecap="round"
         strokeLinejoin="round"
+        strokeWidth="1.8"
+      />
+    </svg>
+  );
+}
+
+function HomeTabIcon({ className = "h-[22px] w-[22px]" }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" aria-hidden="true">
+      <path
+        d="M4.75 11.2 12 5.25l7.25 5.95v7.55a1 1 0 0 1-1 1H14.5v-5.1a1 1 0 0 0-1-1h-3a1 1 0 0 0-1 1v5.1H5.75a1 1 0 0 1-1-1Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+}
+
+function CategoriesTabIcon({ className = "h-[22px] w-[22px]" }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" aria-hidden="true">
+      <rect
+        x="4.5"
+        y="4.5"
+        width="6.5"
+        height="6.5"
+        rx="1.6"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.8"
+      />
+      <rect
+        x="13"
+        y="4.5"
+        width="6.5"
+        height="6.5"
+        rx="1.6"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.8"
+      />
+      <rect
+        x="4.5"
+        y="13"
+        width="6.5"
+        height="6.5"
+        rx="1.6"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.8"
+      />
+      <rect
+        x="13"
+        y="13"
+        width="6.5"
+        height="6.5"
+        rx="1.6"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.8"
+      />
+    </svg>
+  );
+}
+
+function DealsTabIcon({ className = "h-[22px] w-[22px]" }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" aria-hidden="true">
+      <path
+        d="M10.25 4.75h3.5a1.9 1.9 0 0 1 1.58.84l1.28 1.91 2.28.44a1.9 1.9 0 0 1 1.05 3.16l-1.57 1.64.29 2.26a1.9 1.9 0 0 1-2.68 1.94L14 16.03l-2.08.9a1.9 1.9 0 0 1-2.68-1.94l.29-2.26-1.57-1.64a1.9 1.9 0 0 1 1.05-3.16l2.28-.44 1.28-1.91a1.9 1.9 0 0 1 1.58-.84Z"
+        fill="none"
+        stroke="currentColor"
+        strokeLinejoin="round"
+        strokeWidth="1.8"
+      />
+      <circle cx="12" cy="11.85" r="1.35" fill="currentColor" />
+    </svg>
+  );
+}
+
+function ProfileTabIcon({ className = "h-[22px] w-[22px]" }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" aria-hidden="true">
+      <path
+        d="M12 12.5a4.25 4.25 0 1 0 0-8.5 4.25 4.25 0 0 0 0 8.5Z"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.8"
+      />
+      <path
+        d="M4.75 20a7.25 7.25 0 0 1 14.5 0"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="round"
         strokeWidth="1.8"
       />
     </svg>
@@ -487,6 +560,38 @@ function ArrowIcon({ className = "h-[13px] w-[13px]" }) {
         strokeWidth="1.9"
       />
     </svg>
+  );
+}
+
+const mobileBottomNavItems = [
+  { label: "Home", Icon: HomeTabIcon, active: true },
+  { label: "Categories", Icon: CategoriesTabIcon },
+  { label: "Deals", Icon: DealsTabIcon },
+  { label: "Cart", Icon: CartIcon },
+  { label: "Profile", Icon: ProfileTabIcon },
+];
+
+function MobileBottomNav() {
+  return (
+    <nav className="fixed bottom-0 left-0 right-0 z-50 border-t border-[#e7e9ee] bg-white/95 backdrop-blur-md sm:hidden">
+      <div className="grid grid-cols-5 px-3 pt-2 text-center">
+        {mobileBottomNavItems.map(({ label, Icon, active }) => (
+          <a
+            key={label}
+            className={`flex min-h-[70px] flex-col items-center justify-center gap-1.5 ${
+              active ? "text-[#6b7892]" : "text-[#9297a3]"
+            }`}
+            href="#"
+          >
+            <Icon className="h-[22px] w-[22px]" />
+            <span className="text-[0.82rem] font-medium leading-none">
+              {label}
+            </span>
+          </a>
+        ))}
+      </div>
+      <div className="pb-[calc(env(safe-area-inset-bottom)+0.15rem)]" />
+    </nav>
   );
 }
 
@@ -716,11 +821,6 @@ function WhyElectroMallSection() {
 export default function HomePage() {
   return (
     <main className="min-h-screen overflow-x-hidden bg-white pb-[86px] text-[#283241] sm:pb-0">
-      <div className="sm:hidden">
-        <MobileAppleLanding slides={mobileShowcaseSlides} />
-      </div>
-
-      <div className="hidden sm:block">
       <header className="sticky top-0 z-50 border-b border-black/5 bg-white/95 backdrop-blur-md supports-[backdrop-filter]:bg-white/80">
         <div className="sm:hidden">
           <div className="flex items-center justify-between gap-3 px-3 pb-2 pt-3">
@@ -913,7 +1013,6 @@ export default function HomePage() {
         dark
         wideTitle
       />
-      </div>
 
       <div className="content-section-stack bg-white">
         <section className="bg-white px-3 pb-10 pt-6 sm:px-3 sm:pb-12 sm:pt-8 md:px-[14px] lg:px-4 lg:pb-[58px] lg:pt-[38px]" aria-label="Shop categories">
@@ -986,6 +1085,8 @@ export default function HomePage() {
 
         <WhyElectroMallSection />
       </div>
+
+      <MobileBottomNav />
     </main>
   );
 }
