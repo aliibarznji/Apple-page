@@ -1,5 +1,5 @@
 import Image from "next/image";
-import ProductCarouselSection from "./components/product-carousel-section";
+import ProductsFromApi from "./components/products-from-api";
 
 const secondaryLinks = [
   { label: "Store" },
@@ -54,59 +54,6 @@ const marketingCategories = [
     alt: "AirPods category",
     width: 72,
     height: 72,
-  },
-];
-
-const newArrivalProducts = [
-  {
-    name: "iPhone 17 Pro",
-    price: "72,000 IQD",
-    src: "/heroes/iphone-17-pro.png",
-    alt: "iPhone 17 Pro",
-    width: 666,
-    height: 500,
-    imageClassName: "max-w-[178px] sm:max-w-[188px]",
-    panelClassName: "bg-[#f7f7f8]",
-  },
-  {
-    name: "Apple Watch Series 10",
-    price: "69,000 IQD",
-    src: "/categories/apple-watch.avif",
-    alt: "Apple Watch",
-    width: 72,
-    height: 72,
-    imageClassName: "max-w-[92px] scale-[2.05] sm:max-w-[96px]",
-    panelClassName: "bg-[#f7f7f8]",
-  },
-  {
-    name: "AirPods Pro",
-    price: "84,000 IQD",
-    src: "/categories/airpods.avif",
-    alt: "AirPods Pro",
-    width: 72,
-    height: 72,
-    imageClassName: "max-w-[94px] scale-[2.05] sm:max-w-[98px]",
-    panelClassName: "bg-[#f7f7f8]",
-  },
-  {
-    name: "iPad Air",
-    price: "95,000 IQD",
-    src: "/categories/ipad.avif",
-    alt: "iPad Air",
-    width: 78,
-    height: 72,
-    imageClassName: "max-w-[110px] scale-[2.05] sm:max-w-[116px]",
-    panelClassName: "bg-[#f7f7f8]",
-  },
-  {
-    name: "MacBook Pro",
-    price: "112,000 IQD",
-    src: "/categories/macbook.avif",
-    alt: "MacBook Pro",
-    width: 84,
-    height: 72,
-    imageClassName: "max-w-[118px] scale-[2] sm:max-w-[126px]",
-    panelClassName: "bg-[#f7f7f8]",
   },
 ];
 
@@ -1023,7 +970,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        <ProductCarouselSection products={newArrivalProducts} />
+        <ProductsFromApi />
 
         <section
           className="bg-white px-3 pb-[72px] pt-0 sm:px-3 sm:pb-[84px] md:px-[14px] lg:px-4 lg:pb-[96px]"
@@ -1075,14 +1022,6 @@ export default function HomePage() {
             </div>
           </div>
         </section>
-
-        <ProductCarouselSection
-          products={newArrivalProducts}
-          title="Best Sellers"
-          subtitle="Loved by our customers in Erbil."
-          ariaLabel="Best sellers"
-        />
-
         <WhyElectroMallSection />
       </div>
 

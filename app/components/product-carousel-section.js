@@ -34,7 +34,7 @@ function NewArrivalCard({ product, onDragStart }) {
     >
       <a
         className="group block select-none no-underline"
-        href="#"
+        href={product.href ?? "#"}
         draggable={false}
         onDragStart={onDragStart}
       >
