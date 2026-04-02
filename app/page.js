@@ -970,7 +970,12 @@ export default function HomePage() {
           </div>
         </section>
 
-        <ProductsFromApi />
+        <ProductsFromApi
+          sectionKey="newArrivals"
+          title="New Arrivals"
+          subtitle="Real Apple products customers are shopping for now."
+          ariaLabel="New arrivals"
+        />
 
         <section
           className="bg-white px-3 pb-[72px] pt-0 sm:px-3 sm:pb-[84px] md:px-[14px] lg:px-4 lg:pb-[96px]"
@@ -1022,6 +1027,14 @@ export default function HomePage() {
             </div>
           </div>
         </section>
+
+        <ProductsFromApi
+          sectionKey="bestSellers"
+          title="Best Sellers"
+          subtitle="Real Apple products customers are shopping for now."
+          ariaLabel="Best sellers"
+        />
+
         <WhyElectroMallSection />
       </div>
 

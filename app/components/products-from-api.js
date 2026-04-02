@@ -4,7 +4,12 @@ import { useEffect, useState } from "react";
 import { productCatalog } from "../lib/products-catalog";
 import ProductCarouselSection from "./product-carousel-section";
 
-export default function ProductsFromApi() {
+export default function ProductsFromApi({
+  sectionKey,
+  title,
+  subtitle,
+  ariaLabel,
+}) {
   const [catalog, setCatalog] = useState(productCatalog);
 
   useEffect(() => {
@@ -34,16 +39,14 @@ export default function ProductsFromApi() {
     };
   }, []);
 
-  return (
-    <>
-      <ProductCarouselSection products={catalog.sections.newArrivals} />
+  const products = catalog.sections[sectionKey] ?? [];
 
-      <ProductCarouselSection
-        products={catalog.sections.bestSellers}
-        title="Best Sellers"
-        subtitle="Real Apple products customers are shopping for now."
-        ariaLabel="Best sellers"
-      />
-    </>
+  return (
+    <ProductCarouselSection
+      products={products}
+      title={title}
+      subtitle={subtitle}
+      ariaLabel={ariaLabel}
+    />
   );
 }
