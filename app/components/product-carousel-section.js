@@ -2,28 +2,7 @@
 
 import Image from "next/image";
 import { useRef, useState } from "react";
-
-function ArrowIcon({ className = "h-[13px] w-[13px]" }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" aria-hidden="true">
-      <path
-        d="M6 12h12"
-        fill="none"
-        stroke="currentColor"
-        strokeLinecap="round"
-        strokeWidth="1.9"
-      />
-      <path
-        d="m13 7 5 5-5 5"
-        fill="none"
-        stroke="currentColor"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth="1.9"
-      />
-    </svg>
-  );
-}
+import { ArrowIcon } from "./icons/site-icons";
 
 function NewArrivalCard({ product, onDragStart }) {
   const isRemoteImage =
