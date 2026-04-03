@@ -1,6 +1,6 @@
-# Apple Page with Node.js CRUD API
+# Apple Page with Next.js Admin API
 
-This project now uses a standalone Node.js + Express server for the API layer. The Next.js app is still used for the frontend, but the `/api/products` endpoints are handled by Node.js, not by a Next.js route.
+This project now runs fully on Next.js. The storefront, the `app/admin` area, and the `/api/products` CRUD endpoints all live inside the Next app using App Router route handlers.
 
 ## Run the project
 
@@ -53,6 +53,6 @@ Available endpoints:
 ## Notes
 
 - Product data is stored in [data/products.json](/c:/Users/aliib/Desktop/New folder (11)/Apple-page/data/products.json).
-- The frontend still fetches from `/api/products`, so the homepage automatically uses the Node.js API.
+- The frontend still fetches from `/api/products`, so the homepage and admin area share the same Next.js API.
 - A simple admin UI is available at `/admin/products` and `/admin`.
 - The API updates `updatedAt`, `lastModifiedAt`, and `productCount` after every write.

@@ -2,13 +2,12 @@
   "name": "apple-page",
   "private": true,
   "scripts": {
-    "dev": "node server.js --dev",
+    "dev": "next dev",
     "build": "next build",
-    "start": "node server.js --prod"
+    "start": "next start"
   },
   "dependencies": {
     "@tailwindcss/postcss": "^4.2.2",
-    "express": "^5.2.1",
     "next": "^16.2.1",
     "postcss": "^8.5.8",
     "react": "^19.2.4",

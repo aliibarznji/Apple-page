@@ -1,5 +1,5 @@
-const fs = require("fs/promises");
-const path = require("path");
+import fs from "node:fs/promises";
+import path from "node:path";
 
 const dataFilePath = path.join(process.cwd(), "data", "products.json");
 const stringFields = [
@@ -15,7 +15,7 @@ const numberFields = ["width", "height"];
 
 let writeQueue = Promise.resolve();
 
-class HttpError extends Error {
+export class HttpError extends Error {
   constructor(status, message) {
     super(message);
     this.name = "HttpError";
@@ -23,7 +23,7 @@ class HttpError extends Error {
   }
 }
 
-function createHttpError(status, message) {
+export function createHttpError(status, message) {
   return new HttpError(status, message);
 }
 
@@ -268,7 +268,7 @@ function validateUpdatePayload(payload) {
   }
 }
 
-async function getCatalog({ section } = {}) {
+export async function getCatalog({ section } = {}) {
   const catalog = await readCatalog();
 
   if (!section) {
@@ -284,7 +284,7 @@ async function getCatalog({ section } = {}) {
   };
 }
 
-async function getProductById(id) {
+export async function getProductById(id) {
   const productId = validateProductId(id);
   const catalog = await readCatalog();
   const productLocation = findProductLocation(catalog, productId);
@@ -300,7 +300,7 @@ async function getProductById(id) {
   };
 }
 
-async function createProduct(payload) {
+export async function createProduct(payload) {
   return runSerialized(async () => {
     validateUpdatePayload(payload);
 
@@ -336,7 +336,7 @@ async function createProduct(payload) {
   });
 }
 
-async function replaceProduct(id, payload) {
+export async function replaceProduct(id, payload) {
   return runSerialized(async () => {
     validateUpdatePayload(payload);
 
@@ -387,7 +387,7 @@ async function replaceProduct(id, payload) {
   });
 }
 
-async function updateProduct(id, payload) {
+export async function updateProduct(id, payload) {
   return runSerialized(async () => {
     validateUpdatePayload(payload);
 
@@ -453,7 +453,7 @@ async function updateProduct(id, payload) {
   });
 }
 
-async function deleteProduct(id) {
+export async function deleteProduct(id) {
   return runSerialized(async () => {
     const productId = validateProductId(id);
     const catalog = await readCatalog();
@@ -478,12 +478,3 @@ async function deleteProduct(id) {
     };
   });
 }
-
-module.exports = {
-  createProduct,
-  deleteProduct,
-  getCatalog,
-  getProductById,
-  replaceProduct,
-  updateProduct,
-};

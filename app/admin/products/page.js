@@ -233,7 +233,7 @@ export default function AdminProductsPage() {
             </h1>
             <p className="mt-3 max-w-[38rem] text-[0.96rem] leading-[1.65] text-[#d6d8de]">
               Add products, update product details, or remove items from the
-              Node.js catalog without touching the JSON file manually.
+              Next.js catalog without touching the JSON file manually.
             </p>
           </div>
 
