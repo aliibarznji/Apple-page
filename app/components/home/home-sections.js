@@ -20,6 +20,8 @@ export function HeroSection({
   subtitle,
   primaryAction,
   secondaryAction,
+  videoSrc,
+  videoType = "video/mp4",
   imageSrc,
   imageAlt,
   imageWidth,
@@ -69,14 +71,29 @@ export function HeroSection({
         </div>
 
         <div className={`mt-3 flex w-full justify-center sm:mt-2 ${mediaClasses}`}>
-          <Image
-            className={`block h-auto w-full object-contain ${imageMaxWidth}`}
-            src={imageSrc}
-            alt={imageAlt}
-            width={imageWidth}
-            height={imageHeight}
-            priority
-          />
+          {videoSrc ? (
+            <video
+              className={`block h-auto w-full object-contain ${imageMaxWidth}`}
+              autoPlay
+              muted
+              playsInline
+              preload="auto"
+              width={imageWidth}
+              height={imageHeight}
+              aria-hidden="true"
+            >
+              <source src={videoSrc} type={videoType} />
+            </video>
+          ) : (
+            <Image
+              className={`block h-auto w-full object-contain ${imageMaxWidth}`}
+              src={imageSrc}
+              alt={imageAlt}
+              width={imageWidth}
+              height={imageHeight}
+              priority
+            />
+          )}
         </div>
       </div>
     </section>
