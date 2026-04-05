@@ -9,6 +9,7 @@ body {
   min-height: 100%;
   background: #ffffff;
   color: #283241;
+  font-family: "Avenir Next", "Segoe UI Variable Text", "Segoe UI", sans-serif;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
@@ -31,7 +32,7 @@ body {
   }
 }
 
-.new-arrivals-scroll {
+.product-carousel-scroll {
   scrollbar-width: none;
   -ms-overflow-style: none;
   cursor: grab;
@@ -50,11 +51,11 @@ body {
   display: none;
 }
 
-.new-arrivals-scroll::-webkit-scrollbar {
+.product-carousel-scroll::-webkit-scrollbar {
   display: none;
 }
 
-.new-arrivals-scroll[data-dragging="true"] {
+.product-carousel-scroll[data-dragging="true"] {
   cursor: grabbing;
   scroll-behavior: auto;
   scroll-snap-type: none;

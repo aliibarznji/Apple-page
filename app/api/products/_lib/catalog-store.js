@@ -229,10 +229,10 @@ function findProductLocation(catalog, id) {
   return null;
 }
 
-function ensureUniqueProductId(catalog, id, currentId) {
+function ensureUniqueProductId(catalog, id) {
   const existingProduct = findProductLocation(catalog, id);
 
-  if (!existingProduct || existingProduct.product.id === currentId) {
+  if (!existingProduct) {
     return;
   }
 

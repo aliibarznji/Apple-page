@@ -162,7 +162,7 @@ export const whyElectroMallFeatures = [
   },
   {
     title: "Authorized Reseller",
-    description: "Apple Authorized Reseller — 100% genuine products guaranteed.",
+    description: "Apple Authorized Reseller - 100% genuine products guaranteed.",
     iconKey: "badge",
   },
   {

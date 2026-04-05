@@ -1,4 +1,4 @@
-import ProductsFromApi from "./components/products-from-api";
+import ProductsFromApi from "./components/catalog/products-from-api";
 import HomeHeader from "./components/home/home-header";
 import MobileBottomNav from "./components/home/mobile-bottom-nav";
 import {

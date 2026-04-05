@@ -1,10 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import { useRef, useState } from "react";
-import { ArrowIcon } from "./icons/site-icons";
+import { useEffect, useRef, useState } from "react";
+import { ArrowIcon } from "../icons/site-icons";
 
-function NewArrivalCard({ product, onDragStart }) {
+function ProductCard({ product, onDragStart }) {
   const isRemoteImage =
     typeof product.src === "string" && product.src.startsWith("http");
 
@@ -59,7 +59,6 @@ export default function ProductCarouselSection({
   const momentumFrameRef = useRef(null);
   const dragStateRef = useRef({
     pointerId: null,
-    pointerType: null,
     startX: 0,
     startY: 0,
     startScrollLeft: 0,
@@ -100,6 +99,12 @@ export default function ProductCarouselSection({
       momentumFrameRef.current = null;
     }
   }
+
+  useEffect(() => {
+    return () => {
+      stopMomentum();
+    };
+  }, []);
 
   function startMomentum() {
     const scroller = scrollerRef.current;
@@ -160,7 +165,6 @@ export default function ProductCarouselSection({
     stopMomentum();
 
     dragStateRef.current.pointerId = event.pointerId;
-    dragStateRef.current.pointerType = event.pointerType;
     dragStateRef.current.startX = event.clientX;
     dragStateRef.current.startY = event.clientY;
     dragStateRef.current.startScrollLeft = scroller.scrollLeft;
@@ -198,7 +202,7 @@ export default function ProductCarouselSection({
       }
 
       if (Math.abs(deltaY) > Math.abs(deltaX)) {
-        finishDragging(event.pointerId, false);
+        finishDragging(false);
         return;
       }
 
@@ -233,7 +237,7 @@ export default function ProductCarouselSection({
     }
   }
 
-  function finishDragging(pointerId, shouldContinueMomentum = true) {
+  function finishDragging(shouldContinueMomentum = true) {
     const scroller = scrollerRef.current;
     const activePointerId = dragStateRef.current.pointerId;
     const shouldStartMomentum =
@@ -242,7 +246,6 @@ export default function ProductCarouselSection({
       dragStateRef.current.axis === "x";
 
     dragStateRef.current.pointerId = null;
-    dragStateRef.current.pointerType = null;
     dragStateRef.current.startX = 0;
     dragStateRef.current.startY = 0;
     dragStateRef.current.startScrollLeft = 0;
@@ -272,7 +275,7 @@ export default function ProductCarouselSection({
       return;
     }
 
-    finishDragging(event.pointerId);
+    finishDragging();
   }
 
   function handlePointerCancel(event) {
@@ -281,7 +284,7 @@ export default function ProductCarouselSection({
     }
 
     dragStateRef.current.preventClick = false;
-    finishDragging(event.pointerId, false);
+    finishDragging(false);
   }
 
   function handleLostPointerCapture(event) {
@@ -290,7 +293,7 @@ export default function ProductCarouselSection({
     }
 
     dragStateRef.current.isCaptured = false;
-    finishDragging(event.pointerId);
+    finishDragging();
   }
 
   function handleNativeDragStart(event) {
@@ -325,7 +328,7 @@ export default function ProductCarouselSection({
         <div className="mt-5 sm:mt-6">
           <div
             ref={scrollerRef}
-            className={`new-arrivals-scroll -mx-3 flex snap-x snap-mandatory gap-3 overflow-x-auto px-3 pb-3 sm:mx-0 sm:gap-4 sm:px-0 lg:gap-5 ${isDragging ? "select-none" : ""}`}
+            className={`product-carousel-scroll -mx-3 flex snap-x snap-mandatory gap-3 overflow-x-auto px-3 pb-3 sm:mx-0 sm:gap-4 sm:px-0 lg:gap-5 ${isDragging ? "select-none" : ""}`}
             data-dragging={isDragging ? "true" : "false"}
             onClickCapture={handleClickCapture}
             onDragStart={handleNativeDragStart}
@@ -336,7 +339,7 @@ export default function ProductCarouselSection({
             onLostPointerCapture={handleLostPointerCapture}
           >
             {products.map((product) => (
-              <NewArrivalCard
+              <ProductCard
                 key={product.name}
                 product={product}
                 onDragStart={handleNativeDragStart}

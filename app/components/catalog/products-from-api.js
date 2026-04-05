@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { productCatalog } from "../lib/products-catalog";
+import productCatalog from "../../../data/products.json";
 import ProductCarouselSection from "./product-carousel-section";
 
 export default function ProductsFromApi({
