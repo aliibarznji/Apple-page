@@ -2,23 +2,23 @@
   "meta": {
     "currency": "USD",
     "source": "Official Apple U.S. pricing",
-    "updatedAt": "2026-04-03",
-    "lastModifiedAt": "2026-04-03T16:45:25.119Z",
+    "updatedAt": "2026-04-06",
+    "lastModifiedAt": "2026-04-06T09:31:31.015Z",
     "productCount": 10
   },
   "sections": {
     "newArrivals": [
       {
-        "id": "iphone-17-pro",
         "name": "iPhone 17 Pro",
-        "price": "From $1,099",
+        "price": "From $1,349",
         "href": "https://www.apple.com/shop/buy-iphone/iphone-17-pro",
         "src": "https://cdsassets.apple.com/live/7WUAS350/images/tech-specs/iphone-17-pro-17-pro-max-hero.png",
         "alt": "iPhone 17 Pro",
+        "imageClassName": "max-w-[154px] sm:max-w-[164px]",
+        "panelClassName": "bg-white",
         "width": 1024,
         "height": 1024,
-        "imageClassName": "max-w-[154px] sm:max-w-[164px]",
-        "panelClassName": "bg-white"
+        "id": "iphone-17-pro"
       },
       {
         "id": "apple-watch-series-11",
