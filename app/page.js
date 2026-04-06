@@ -45,7 +45,6 @@ export default function HomePage() {
         imageWidth={1365}
         imageHeight={768}
         imageMaxWidth="max-w-[1240px]"
-        dark
         wideTitle
       />
 
