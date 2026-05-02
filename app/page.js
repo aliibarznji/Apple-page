@@ -27,11 +27,11 @@ export default function HomePage() {
         subtitle="Meet the latest iPhone lineup."
         primaryAction="Learn more"
         secondaryAction="Shop iPhone"
-        videoSrc="/iphone-video/17-pro-video.mp4"
+        imageSrc="/heroes/iphone-17-pro.png"
+        imageAlt="iPhone 17 Pro"
         imageWidth={666}
-        imageHeight={500}
-        imageMaxWidth="max-w-[980px]"
-        dark
+        imageHeight={375}
+        imageMaxWidth="max-w-[1240px]"
       />
 
       <HeroSection
@@ -45,6 +45,7 @@ export default function HomePage() {
         imageWidth={1365}
         imageHeight={768}
         imageMaxWidth="max-w-[1240px]"
+        dark
         wideTitle
       />
 

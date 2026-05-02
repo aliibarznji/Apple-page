@@ -1,0 +1,19 @@
+
+> dev
+> next dev --hostname 127.0.0.1 --port 3000
+
+▲ Next.js 16.2.1 (Turbopack)
+- Local:         http://127.0.0.1:3000
+- Network:       http://127.0.0.1:3000
+✓ Ready in 1105ms
+Creating turbopack project {
+  dir: 'C:\\Users\\LENOVO\\Desktop\\New folder (3)\\Apple-page',
+  testMode: true
+}
+
+○ Compiling / ...
+ GET / 200 in 6.8s (next.js: 5.2s, application-code: 1558ms)
+ GET / 200 in 1091ms (next.js: 46ms, application-code: 1045ms)
+ GET /api/products 200 in 1079ms (next.js: 985ms, application-code: 94ms)
+ GET /api/products 200 in 1099ms (next.js: 1046ms, application-code: 53ms)
+ GET / 200 in 414ms (next.js: 8ms, application-code: 407ms)
